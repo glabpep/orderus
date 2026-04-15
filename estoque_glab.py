@@ -556,7 +556,7 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
 
   <div class="alert-bar">
     <span class="close-x" onclick="this.parentElement.style.display='none'">&times;</span>
-    <strong>📢 Aviso:</strong> 
+    <strong>📢 Notice-Aviso:</strong> 
   </div>
   <div class="alert-bar">
     <span class="close-x" onclick="this.parentElement.style.display='none'">&times;</span>
@@ -647,7 +647,7 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
     <div class="form-group">
       <select id="f_pgto">
         <option value="Zelle">Zelle </option>
-        <option value="Invoice">Cartão de Crédito (até 12x)</option>
+        <option value="Invoice">INVOICE</option>
       </select>
     </div>
     <button onclick="enviarPedido()" class="btn-checkout" style="margin-top:0">SEND WHATSAPP - ENVIAR PARA WHATSAPP</button>
@@ -842,10 +842,7 @@ function toggleAvail() {{
 
 function aplicarCupom() {{
     const code = document.getElementById('coupon-code').value.trim().toUpperCase();
-    const cupons = {{'BRUNA5':0.05,'DANI5':0.05,'GILMARA5':0.05,'DAFNE10':0.10,'NOS5':0.05,'ROGERIO5':0.05,
-    'ANDERSON5':0.05,'JAQUE5':0.05,'CABRAL5':0.05,'KARLINHA5':0.05,'LUD5':0.05,'CASSIA5':0.05,'THAIS5':0.05,
-    'NATAN':0.00000000001,'LIRICY5':0.05,'ANDREAFLEURY':0.05,'ANA5':0.05,'10PRO':0.000000000001,'PRO5':0.05,
-    'WEY5':0.05,'ALE5':0.05,'TRIGUEIRO':0.05,'RAYSSA5':0.05,'BRUNA11':0.11}};
+    const cupons = {{'BRUNA5':0.05,'BRUNA11':0.11, 'BRU11':0.11, 'PRO5':0.05, 'LARI5':0.05, 'AMANDA5':0.05, 'BRUNA10':0.10, 'MIKA5':0.05, 'PRIME5':0.05, 'WEY5':0.05, 'CASSIA5':0.05, 'LUD5':0.05, 'DANI5':0.05, 'GR26R':0.05, 'THA10':0.10, 'ESTEPHANY5':0.05, 'DAFNE10':0.10}};
     
     if(cupons[code]) {{ cupomAtivo = {{nome:code, desc:cupons[code]}}; alert("Coupon applied - Cupom aplicado!"); }}
     else {{ cupomAtivo = null; alert("Invalid coupon - Cupom inválido."); }}
@@ -912,8 +909,15 @@ function enviarPedido() {{
         msg += "%0A🏷️ *CUPOM:* " + cupomAtivo.nome + " (-U$ " + desc.toFixed(2) + ")";
     }}
     
+    if (d.p === "ZELLE") {{
+        if (!confirm("You have selected Zelle. Here is the Zelle key for the transfer: +1 (774) 351-9845 Don't forget to send the proof of payment along with your order! Você selecionou Zelle. Segue a chave zelle para a transferência: +1 (774) 351-9845 Não esqueça de enviar o comprovante junto com o pedido!")) {{
+            return; // Cancela o envio se o usuário clicar em 'Cancel - Cancelar'
+        }}
+    }}
   
     msg += "%0A*TOTAL: U$ " + (sub - desc + freteV).toFixed(2) + "*";
+
+    msg += "%0A%0A*Zelle key for the transfer - Chave zelle para a transferência: +1 (774) 351-9845*";
 
     // 4. Envio
     window.open("https://wa.me/+17743519845?text=" + msg, '_blank');
