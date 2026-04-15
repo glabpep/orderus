@@ -631,11 +631,11 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
   <div class="modal-box" style="text-align:left">
     <div class="modal-box" style="text-align:left">
     <h2>📦 Delivery Details | Dados de Entrega</h2>
+    <div class="form-group"><input type="text" id="zip-code" placeholder="ZIP Code | Código Postal"></div>
     <div class="form-group"><input type="text" id="f_nome" placeholder="Full Name | Nome Completo"></div>
     <div class="form-group"><input type="text" id="f_end" placeholder="Address (Street/Ave) | Endereço (Rua/Av)"></div>
     <div class="form-row">         
     </div>
-    <div class="form-group"><input type="text" id="zip-code" placeholder="ZIP Code | Código Postal"></div>
     <div class="form-group"><input type="text" id="f_comp" placeholder="Complement (Optional) | Complemento (Opcional)"></div>
     <div class="form-row">
       <input type="text" id="f_cidade" placeholder="City | Cidade">
@@ -663,28 +663,48 @@ let cupomAtivo = null;
 let catAtual = "all";
 let apenasDisp = false;
 
-// 2. FUNÇÃO DE BUSCA DE CEP (ESSENCIAL)
-async function buscarDadosCep(cep) {{
-    try {{
-        const r = await fetch(`https://viacep.com.br/ws/${{cep}}/json/`);
-        const d = await r.json();
-        if(!d.erro) return {{localidade:d.localidade, uf:d.uf.toUpperCase(), logradouro:d.logradouro, bairro:d.bairro}};
-    }} catch(e) {{}}
-    return null;
+async function buscarDadosZip(zip) {{
+  try {{
+    const r = await fetch(`https://api.zippopotam.us/us/${{zip}}`);
+    const d = await r.json();
+    if (r.ok && d.places && d.places.length > 0) {{
+      return {{
+        localidade: d.places[0]["place name"],
+        uf: d.places[0]["state abbreviation"].toUpperCase(),
+        logradouro: "",
+        bairro: ""
+      }};
+    }}
+  }} catch (e) {{}}
+
+  try {{
+    const r = await fetch(`https://www.zipcodeapi.com/rest/LTruIhU3BvIaOekI0j9OE2rjxjTK6ev2quJ1ikWo0MFQ8H03qgSx8xSW62pzmUwh/info.json/${{zip}}/degrees`);
+    const d = await r.json();
+    if (r.ok) {{
+      return {{
+        localidade: d.city,
+        uf: d.state.toUpperCase(),
+        logradouro: "",
+        bairro: ""
+      }};
+    }}
+  }} catch (e) {{}}
+
+  return null;
 }}
 
 // 3. FUNÇÃO DE FRETE (FIXA EM 12 DÓLARES)
 async function calcularFrete() {{
-    const campoCep = document.getElementById('cep-destino');
+    const campoCep = document.getElementById('zip-code');
     if(!campoCep) return;
     const cep = campoCep.value.replace(/\D/g,'');
     const btn = document.getElementById('btn-calc');
     
-    if(cep.length !== 8) {{ alert("CEP inválido"); return; }}
+    if(cep.length !== 5) {{ alert("CEP inválido"); return; }}
     
     if(btn) {{ btn.disabled = true; btn.textContent = "..."; }}
 
-    const data = await buscarDadosCep(cep);
+    const data = await buscarDadosZip(cep);
     
     if(!data) {{ 
         alert("CEP não encontrado"); 
@@ -846,16 +866,19 @@ function aplicarCupom() {{
     atualizarCarrinho();
 }}
 
+
+
+
 // 7. FINALIZAÇÃO E WHATSAPP
 function enviarPedido() {{
     // 1. Coleta dos dados do formulário
     const d = {{
+        ce: document.getElementById('zip-code').value.trim(),
         n: document.getElementById('f_nome').value.trim().toUpperCase(),
         e: document.getElementById('f_end').value.trim().toUpperCase(),
         co: document.getElementById('f_comp').value.trim().toUpperCase(),
         ci: document.getElementById('f_cidade').value.trim().toUpperCase(),
         es: document.getElementById('f_estado').value.trim().toUpperCase(),
-        ce: document.getElementById('zip-code').value.trim(),
         t: document.getElementById('f_tel').value.trim(),
         p: document.getElementById('f_pgto').value.toUpperCase()
     }};
@@ -933,6 +956,9 @@ function gerarDestaques() {{
 // INIT
 gerarDestaques();
 filtrarProdutos();
+
+document.getElementById('zip-code').addEventListener('blur', calcularFrete);
+
 </script>
 </body>
 </html>"""
