@@ -633,9 +633,7 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
     <h2>📦 Delivery Details | Dados de Entrega</h2>
     <div class="form-group"><input type="text" id="f_nome" placeholder="Full Name | Nome Completo"></div>
     <div class="form-group"><input type="text" id="f_end" placeholder="Address (Street/Ave) | Endereço (Rua/Av)"></div>
-    <div class="form-row">
-      <input type="text" id="f_num" placeholder="No. | Nº" style="max-width:100px">
-      <input type="text" id="f_bairro" placeholder="Neighborhood | Bairro">
+    <div class="form-row">         
     </div>
     <div class="form-group"><input type="text" id="zip-code" placeholder="ZIP Code | Código Postal"></div>
     <div class="form-group"><input type="text" id="f_comp" placeholder="Complement (Optional) | Complemento (Opcional)"></div>
@@ -700,7 +698,6 @@ async function calcularFrete() {{
     document.getElementById('f_cidade').value = data.localidade;
     document.getElementById('f_estado').value = data.uf;
     document.getElementById('f_end').value = data.logradouro;
-    document.getElementById('f_bairro').value = data.bairro;
     document.getElementById('resultado-frete').textContent = '✅ ' + data.localidade + '-' + data.uf + ': ' + freteD;
     
     atualizarCarrinho();
@@ -855,8 +852,6 @@ function enviarPedido() {{
     const d = {{
         n: document.getElementById('f_nome').value.trim().toUpperCase(),
         e: document.getElementById('f_end').value.trim().toUpperCase(),
-        nu: document.getElementById('f_num').value.trim(),
-        ba: document.getElementById('f_bairro').value.trim().toUpperCase(),
         co: document.getElementById('f_comp').value.trim().toUpperCase(),
         ci: document.getElementById('f_cidade').value.trim().toUpperCase(),
         es: document.getElementById('f_estado').value.trim().toUpperCase(),
@@ -866,7 +861,7 @@ function enviarPedido() {{
     }};
 
     // Validação básica
-    if(!d.n || !d.e || !d.nu || !d.t) {{ 
+    if(!d.n || !d.e || !d.t) {{ 
         alert("Please fill in all required fields | Preencha os campos obrigatórios!"); 
         return; 
     }}
@@ -892,8 +887,7 @@ function enviarPedido() {{
     msg += "*CLIENTE:*%0A";
     msg += "• *NOME:* " + d.n + "%0A";
     msg += "• *WHATSAPP:* " + d.t + "%0A";
-    msg += "• *END:* " + d.e + ", " + d.nu + "%0A";
-    msg += "• *BAIRRO:* " + d.ba + "%0A";
+    msg += "• *END:* " + d.e + ", " + "%0A";
     
     if(d.co) msg += "• *COMPL:* " + d.co + "%0A";
     
