@@ -1,0 +1,2057 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<title>G-LAB PEPTIDES — Store — Catálogo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#07080a;--surface:#0e1117;--surface2:#161b22;--surface3:#1c2333;
+--text:#e6edf3;--text2:#8b949e;--accent:#58a6ff;--accent2:#1f6feb;
+--green:#3fb950;--red:#f85149;--gold:#d29922;--pink:#f778ba;
+--radius:16px;--font:'Space Grotesk',system-ui,sans-serif;--mono:'JetBrains Mono',monospace;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:hidden}
+.grain{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9999;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat:repeat;opacity:0.4}
+.glow-orb{position:fixed;width:600px;height:600px;border-radius:50%;filter:blur(120px);opacity:0.07;pointer-events:none;z-index:0}
+.glow-1{top:-200px;left:-100px;background:var(--accent)}
+.glow-2{bottom:-200px;right:-100px;background:var(--pink)}
+
+.wrap{max-width:1100px;margin:0 auto;padding:20px;position:relative;z-index:1;padding-bottom:240px}
+.header{text-align:center;padding:40px 0 20px}
+.logo-text{font-size:2.4rem;font-weight:700;letter-spacing:-1px;
+  background:linear-gradient(135deg,var(--accent),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo-sub{font-family:var(--mono);font-size:0.8rem;color:var(--text2);margin-top:4px;letter-spacing:2px;text-transform:uppercase}
+
+/* FEATURED SECTION */
+.featured-section{margin:30px 0}
+.section-title{font-size:1.1rem;font-weight:600;color:var(--text2);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.section-title span{display:inline-block;width:4px;height:20px;background:linear-gradient(var(--accent),var(--pink));border-radius:2px}
+.featured-scroll{display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.featured-scroll::-webkit-scrollbar{height:4px}
+.featured-scroll::-webkit-scrollbar-track{background:var(--surface)}
+.featured-scroll::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+.feat-card{min-width:280px;max-width:320px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--surface3);
+  border-radius:var(--radius);padding:20px;position:relative;overflow:hidden;flex-shrink:0;
+  transition:transform 0.3s,border-color 0.3s}
+.feat-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--pink))}
+.feat-icon{font-size:2rem;margin-bottom:12px}
+.feat-name{font-size:1.05rem;font-weight:600;margin-bottom:4px}
+.feat-spec{font-size:0.75rem;color:var(--text2);font-family:var(--mono)}
+.feat-desc{font-size:0.8rem;color:var(--text2);margin-top:10px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.feat-price{font-size:1.2rem;font-weight:700;color:var(--green);margin-top:12px}
+.feat-btn{margin-top:10px;width:100%;padding:10px;border:none;border-radius:10px;font-weight:600;font-family:var(--font);
+  cursor:pointer;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;font-size:0.85rem;transition:opacity 0.2s}
+.feat-btn:hover{opacity:0.85}
+
+/* ALERTS */
+.alert-bar{background:var(--surface);border:1px solid var(--surface3);border-left:4px solid var(--accent);
+  padding:14px 18px;border-radius:12px;margin-bottom:14px;font-size:0.85rem;line-height:1.5;color:var(--text2);position:relative}
+.alert-bar strong{color:var(--text)}
+.alert-bar .close-x{position:absolute;top:10px;right:14px;cursor:pointer;color:var(--text2);font-size:1.1rem}
+
+/* SEARCH & FILTERS */
+.search-area{margin:24px 0 16px;display:flex;gap:10px;flex-wrap:wrap}
+.search-input{flex:1;min-width:200px;padding:12px 16px;border:1px solid var(--surface3);border-radius:12px;
+  background:var(--surface);color:var(--text);font-size:0.9rem;font-family:var(--font);outline:none;transition:border-color 0.2s}
+.search-input:focus{border-color:var(--accent)}
+.search-input::placeholder{color:var(--text2)}
+.toggle-avail{padding:10px 18px;border:1px solid var(--surface3);border-radius:12px;background:var(--surface);color:var(--text2);
+  font-size:0.8rem;font-family:var(--font);cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.toggle-avail.active{border-color:var(--green);color:var(--green);background:rgba(63,185,80,0.1)}
+.cat-filters{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px;-webkit-overflow-scrolling:touch}
+.cat-filters::-webkit-scrollbar{height:0}
+.cat-btn{padding:6px 14px;border-radius:20px;border:1px solid var(--surface3);background:var(--surface);color:var(--text2);
+  font-size:0.75rem;font-family:var(--font);cursor:pointer;white-space:nowrap;transition:all 0.2s}
+.cat-btn:hover,.cat-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(88,166,255,0.08)}
+
+/* PRODUCT GRID */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.product-card{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius);padding:18px;
+  transition:all 0.3s;position:relative;overflow:hidden}
+.product-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 30px rgba(88,166,255,0.06)}
+.product-card[data-available="0"]{opacity:0.55}
+.pc-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.pc-icon{font-size:1.6rem;width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  background:var(--surface2);border-radius:12px;flex-shrink:0}
+.pc-info{flex:1;min-width:0}
+.pc-name{font-size:0.95rem;font-weight:600;line-height:1.3;margin-bottom:4px}
+.pc-spec{font-size:0.72rem;color:var(--text2);font-family:var(--mono)}
+.pc-cat{display:inline-block;font-size:0.65rem;padding:2px 8px;border-radius:8px;margin-top:6px;font-weight:500}
+.pc-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.pc-price-status{display:flex;flex-direction:column;gap:4px}
+.pc-price{font-size:1.1rem;font-weight:700;color:var(--green)}
+.pc-status{font-size:0.7rem;font-family:var(--mono);text-transform:uppercase}
+.st-ok{color:var(--green)}
+.st-out{color:var(--red);background:rgba(248,81,73,0.1);padding:2px 8px;border-radius:6px;border:1px solid rgba(248,81,73,0.3)}
+.pc-actions{display:flex;gap:8px}
+.btn-detail{padding:8px 14px;border:1px solid var(--surface3);border-radius:10px;background:transparent;
+  color:var(--text2);font-size:0.78rem;font-family:var(--font);cursor:pointer;transition:all 0.2s}
+.btn-detail:hover{border-color:var(--accent);color:var(--accent)}
+.btn-cart{padding:8px 16px;border:none;border-radius:10px;background:var(--accent2);color:#fff;
+  font-size:0.78rem;font-weight:600;font-family:var(--font);cursor:pointer;transition:all 0.2s}
+.btn-cart:hover{background:var(--accent)}
+.btn-cart:disabled{background:var(--surface3);color:var(--text2);cursor:not-allowed}
+
+/* CEP */
+.cep-section{background:var(--surface);border:1px solid var(--surface3);border-radius:var(--radius);padding:20px;margin:24px 0}
+.cep-section h3{font-size:0.95rem;margin-bottom:12px}
+.cep-row{display:flex;gap:10px}
+.cep-row input{flex:1}
+.cep-row button{white-space:nowrap}
+#resultado-frete{margin-top:10px;font-size:0.85rem;color:var(--accent);font-weight:600}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;z-index:2000;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);overflow-y:auto}
+.modal-box{background:var(--surface);border:1px solid var(--surface3);margin:6% auto;padding:28px;
+  width:92%;max-width:520px;border-radius:20px;position:relative}
+.modal-box h2{font-size:1.2rem;margin-bottom:6px;background:linear-gradient(135deg,var(--accent),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.modal-body{background:var(--surface2);padding:16px;border-radius:12px;border-left:4px solid var(--accent);
+  margin:16px 0;font-size:0.9rem;line-height:1.6;color:var(--text2)}
+.modal-close{width:100%;padding:12px;border:none;border-radius:12px;background:var(--surface3);color:var(--text);
+  font-family:var(--font);font-weight:600;cursor:pointer;font-size:0.9rem;transition:background 0.2s}
+.modal-close:hover{background:var(--surface2)}
+
+/* CART */
+.cart-fab{position:fixed;bottom:24px;right:24px;z-index:900;width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#fff;font-size:1.4rem;
+  cursor:pointer;box-shadow:0 4px 24px rgba(88,166,255,0.3);display:none;align-items:center;justify-content:center;transition:transform 0.2s}
+.cart-fab:hover{transform:scale(1.08)}
+.cart-fab .badge{position:absolute;top:-4px;right:-4px;background:var(--red);color:#fff;font-size:0.65rem;
+  width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+.cart-panel{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--surface3);
+  border-radius:20px 20px 0 0;z-index:1000;display:none;box-shadow:0 -8px 40px rgba(0,0,0,0.4);
+  max-height:80vh;overflow-y:auto;padding:20px}
+@media(min-width:768px){.cart-panel{width:420px;left:auto;right:24px;bottom:24px;border-radius:20px}}
+.cart-panel h3{font-size:1rem;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center}
+.cart-panel h3 button{background:none;border:none;color:var(--text2);font-size:1.4rem;cursor:pointer}
+.cart-list{max-height:180px;overflow-y:auto;margin:10px 0;background:var(--surface2);border-radius:12px;padding:6px}
+.cart-list::-webkit-scrollbar{width:4px}
+.cart-list::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:4px}
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:10px;border-bottom:1px solid var(--surface3);font-size:0.82rem}
+.cart-item:last-child{border:none}
+.btn-rm{background:var(--red);border:none;color:#fff;border-radius:6px;padding:3px 8px;cursor:pointer;font-weight:700;font-size:0.75rem;margin-left:8px}
+.coupon-row{display:flex;gap:8px;margin:12px 0}
+.coupon-row input{flex:1;padding:10px;border:1px solid var(--surface3);border-radius:10px;background:var(--surface2);color:var(--text);font-family:var(--font);font-size:0.8rem}
+.coupon-row button{padding:10px 16px;border:none;border-radius:10px;background:var(--gold);color:#000;font-weight:700;font-size:0.8rem;cursor:pointer}
+.ship-row{display:flex;justify-content:space-between;align-items:center;font-size:0.82rem;color:var(--gold);font-weight:600;margin:6px 0}
+.discount-line{display:none;justify-content:space-between;color:var(--gold);font-size:0.85rem;margin:4px 0}
+.total-row{display:flex;justify-content:space-between;font-size:1.1rem;font-weight:700;padding-top:10px;border-top:1px solid var(--surface3);margin-top:8px}
+.btn-checkout{width:100%;padding:14px;border:none;border-radius:14px;font-weight:700;font-size:0.95rem;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;cursor:pointer;margin-top:10px;font-family:var(--font);transition:opacity 0.2s}
+.btn-checkout:hover{opacity:0.85}
+
+.form-group{margin-bottom:12px}
+.form-group input,.form-group select{width:100%;padding:12px;border:1px solid var(--surface3);border-radius:10px;
+  background:var(--surface2);color:var(--text);font-family:var(--font);font-size:0.9rem}
+.form-group input::placeholder{color:var(--text2)}
+.form-row{display:flex;gap:10px;margin-bottom:12px}
+.form-row input{flex:1}
+
+.no-results{text-align:center;padding:60px 20px;color:var(--text2)}
+.no-results span{font-size:2rem;display:block;margin-bottom:12px}
+
+@media(max-width:600px){
+  .product-grid{grid-template-columns:1fr}
+  .logo-text{font-size:1.8rem}
+  .feat-card{min-width:240px}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="glow-orb glow-1"></div>
+<div class="glow-orb glow-2"></div>
+
+<div class="wrap">
+  <div class="header">
+    <div class="logo-text">G-LAB PEPTIDES</div>
+    <div class="logo-sub">Research · Performance · Longevity</div>
+  </div>
+
+  <div class="alert-bar">
+    <span class="close-x" onclick="this.parentElement.style.display='none'">&times;</span>
+    <strong>📢 Aviso:</strong> 
+  </div>
+  <div class="alert-bar">
+    <span class="close-x" onclick="this.parentElement.style.display='none'">&times;</span>
+    <strong>⚗️ IMPORTANT- Importante:</strong> Products are filled in solid form, so they do not require refrigeration to maintain their properties. The product must be diluted in a bacteriostatic solution (sold separately). Keep refrigerated after dilution! Os produtos são envasados em forma sólida, assim não necessitam de refrigeração para manter as propriedades. O produto deve ser diluído em solução bacteriostática (vendida à parte). Após diluição manter refrigerado!. <br><strong>NOME DA SOLUÇÃO:</strong> BACTERIOSTATIC WATER.
+  </div>
+
+  <div class="featured-section">
+    <div class="section-title"><span></span> Daily Highlights - Destaques do Dia</div>
+    <div class="featured-scroll" id="featured-scroll"></div>
+  </div>
+
+
+  <div class="search-area">
+    <input type="text" class="search-input" id="search-input" placeholder="Search products - Buscar produto..." oninput="filtrarProdutos()">
+    <button class="toggle-avail" id="toggle-avail" onclick="toggleAvail()">Only in stock - Apenas Disponíveis</button>
+  </div>
+  <div class="cat-filters" id="cat-filters">
+    <button class="cat-btn active" data-cat="all" onclick="filtrarCat('all')">Todos</button>
+<button class="cat-btn" data-cat="Acessório | Accessory" onclick="filtrarCat('Acessório | Accessory')" style="--cat-color:#9e9e9e">Acessório | Accessory</button>
+<button class="cat-btn" data-cat="Cognitivo | Cognitive" onclick="filtrarCat('Cognitivo | Cognitive')" style="--cat-color:#9e9e9e">Cognitivo | Cognitive</button>
+<button class="cat-btn" data-cat="Estética | Aesthetics" onclick="filtrarCat('Estética | Aesthetics')" style="--cat-color:#9e9e9e">Estética | Aesthetics</button>
+<button class="cat-btn" data-cat="Hormônios | Hormones" onclick="filtrarCat('Hormônios | Hormones')" style="--cat-color:#9e9e9e">Hormônios | Hormones</button>
+<button class="cat-btn" data-cat="Imunidade | Immunity" onclick="filtrarCat('Imunidade | Immunity')" style="--cat-color:#9e9e9e">Imunidade | Immunity</button>
+<button class="cat-btn" data-cat="Longevidade | Longevity" onclick="filtrarCat('Longevidade | Longevity')" style="--cat-color:#9e9e9e">Longevidade | Longevity</button>
+<button class="cat-btn" data-cat="Metabolismo | Metabolism" onclick="filtrarCat('Metabolismo | Metabolism')" style="--cat-color:#9e9e9e">Metabolismo | Metabolism</button>
+<button class="cat-btn" data-cat="Recuperação | Recovery" onclick="filtrarCat('Recuperação | Recovery')" style="--cat-color:#9e9e9e">Recuperação | Recovery</button>
+<button class="cat-btn" data-cat="Sexual | Sexual" onclick="filtrarCat('Sexual | Sexual')" style="--cat-color:#9e9e9e">Sexual | Sexual</button>
+<button class="cat-btn" data-cat="Suplemento | Supplement" onclick="filtrarCat('Suplemento | Supplement')" style="--cat-color:#9e9e9e">Suplemento | Supplement</button>
+
+  </div>
+
+  <div class="product-grid" id="product-grid">
+    
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">5-Amino</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 59.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(0)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(0)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">5-Amino Oral</h3>
+                    <span class="pc-spec">50 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 129.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(1)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(1)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">AICAR</h3>
+                    <span class="pc-spec">50 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 71.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(2)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(2)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">AOD 9604</h3>
+                    <span class="pc-spec">5 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 55.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(3)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(3)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">AOD 9604</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 98.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(4)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(4)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Recuperação | Recovery" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🩹</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">ARA 290</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Recuperação | Recovery</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 63.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(5)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(5)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Acessório | Accessory" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💧</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Bacteriostatic Water</h3>
+                    <span class="pc-spec">3 ML</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Acessório | Accessory</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 6.99</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(6)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(6)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Acessório | Accessory" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💧</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Bacteriostatic Water</h3>
+                    <span class="pc-spec">10 ML</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Acessório | Accessory</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 9.99</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(7)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(7)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Recuperação | Recovery" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🩹</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">BPC-157</h3>
+                    <span class="pc-spec">5 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Recuperação | Recovery</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 57.99</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(8)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(8)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Recuperação | Recovery" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🩹</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">BPC-157 Oral</h3>
+                    <span class="pc-spec">500 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Recuperação | Recovery</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 169.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(9)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(9)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">CJC-1295</h3>
+                    <span class="pc-spec">2 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 30.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(10)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(10)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">CJC-1295 + Ipamorelin</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 82.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(11)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(11)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Cognitivo | Cognitive" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🧠</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">DSIP</h3>
+                    <span class="pc-spec">5 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Cognitivo | Cognitive</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 48.89</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(12)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(12)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Longevidade | Longevity" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">⏳</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Epithalon</h3>
+                    <span class="pc-spec">50 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Longevidade | Longevity</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 109.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(13)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(13)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Estética | Aesthetics" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">✨</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">GHK-Cu</h3>
+                    <span class="pc-spec">50 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Estética | Aesthetics</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 58.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(14)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(14)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Estética | Aesthetics" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">✨</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">GHK-Cu</h3>
+                    <span class="pc-spec">100 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Estética | Aesthetics</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 81.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(15)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(15)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">GHRP-6</h3>
+                    <span class="pc-spec">5 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 30.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(16)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(16)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Estética | Aesthetics" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">✨</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">GLOW</h3>
+                    <span class="pc-spec">70 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Estética | Aesthetics</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 125.00</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(17)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(17)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">HCG</h3>
+                    <span class="pc-spec">5000ui nan</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 53.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(18)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(18)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Suplemento | Supplement" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💊</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Hemp Oil</h3>
+                    <span class="pc-spec">60 ML</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Suplemento | Supplement</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 24.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(19)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(19)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Hexarelin</h3>
+                    <span class="pc-spec">2 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 57.69</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(20)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(20)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">HGH Fragment 176-191</h3>
+                    <span class="pc-spec">5 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 52.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(21)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(21)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Estética | Aesthetics" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">✨</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Hyaluronic Acid 2% + GHK</h3>
+                    <span class="pc-spec">30 ML</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Estética | Aesthetics</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 77.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(22)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(22)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">IGF DES</h3>
+                    <span class="pc-spec">2 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 80.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(23)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(23)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">IGF-1 LR3</h3>
+                    <span class="pc-spec">1 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 108.99</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(24)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(24)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Ipamorelin</h3>
+                    <span class="pc-spec">5 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 74.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(25)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(25)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Ipamorelin</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 74.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(26)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(26)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Kisspeptin</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 59.89</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(27)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(27)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Recuperação | Recovery" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🩹</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">KLOW</h3>
+                    <span class="pc-spec">80 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Recuperação | Recovery</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 145.00</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(28)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(28)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Imunidade | Immunity" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🛡️</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">KPV</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Imunidade | Immunity</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 60.99</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(29)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(29)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">L-Carnitine</h3>
+                    <span class="pc-spec">500 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 48.89</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(30)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(30)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Lipo C 120</h3>
+                    <span class="pc-spec">120 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 48.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(31)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(31)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Lipo C 425</h3>
+                    <span class="pc-spec">425 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 59.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(32)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(32)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Imunidade | Immunity" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🛡️</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">LL-37</h3>
+                    <span class="pc-spec">5 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Imunidade | Immunity</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 81.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(33)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(33)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Estética | Aesthetics" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">✨</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Melanotan 1</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Estética | Aesthetics</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 48.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(34)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(34)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Estética | Aesthetics" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">✨</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Melanotan 2</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Estética | Aesthetics</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 48.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(35)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(35)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Cognitivo | Cognitive" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🧠</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Methylene Blue</h3>
+                    <span class="pc-spec">60 ML</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Cognitivo | Cognitive</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 24.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(36)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(36)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">MK-677</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 103.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(37)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(37)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">MOTS-c</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 76.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(38)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(38)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">MOTS-c</h3>
+                    <span class="pc-spec">40 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 155.00</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(39)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(39)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Longevidade | Longevity" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">⏳</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">NAD+</h3>
+                    <span class="pc-spec">100 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Longevidade | Longevity</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 108.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(40)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(40)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Cognitivo | Cognitive" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🧠</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Oxytocin</h3>
+                    <span class="pc-spec">2 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Cognitivo | Cognitive</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 37.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(41)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(41)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Cognitivo | Cognitive" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🧠</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Pinealon</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Cognitivo | Cognitive</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 76.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(42)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(42)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Sexual | Sexual" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">❤️</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">PT-141 Bremelanotide</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Sexual | Sexual</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 59.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(43)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(43)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Cognitivo | Cognitive" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🧠</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Selank</h3>
+                    <span class="pc-spec">5 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Cognitivo | Cognitive</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 46.99</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(44)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(44)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Cognitivo | Cognitive" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🧠</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Semax</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Cognitivo | Cognitive</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 46.99</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(45)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(45)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Sermorelin</h3>
+                    <span class="pc-spec">5 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 50.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(46)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(46)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Hormônios | Hormones" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💉</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Sermorelin</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Hormônios | Hormones</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 89.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(47)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(47)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">SLU PP</h3>
+                    <span class="pc-spec">5 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 134.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(48)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(48)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Longevidade | Longevity" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">⏳</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">SS-31</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Longevidade | Longevity</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 65.00</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(49)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(49)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Longevidade | Longevity" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">⏳</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">SS-31</h3>
+                    <span class="pc-spec">50 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Longevidade | Longevity</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 210.00</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(50)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(50)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Recuperação | Recovery" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🩹</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">TB-500</h3>
+                    <span class="pc-spec">5 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Recuperação | Recovery</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 85.00</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(51)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(51)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Recuperação | Recovery" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🩹</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">TB-500</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Recuperação | Recovery</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 85.00</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(52)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(52)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Recuperação | Recovery" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🩹</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">TB-500 + BPC blend</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Recuperação | Recovery</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 98.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(53)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(53)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Tesamorelin</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 86.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(54)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(54)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Metabolismo | Metabolism" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">🔥</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Tesamorelin</h3>
+                    <span class="pc-spec">15 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Metabolismo | Metabolism</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 115.00</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(55)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(55)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card" data-cat="Suplemento | Supplement" data-available="1">
+            <div class="pc-top">
+                <div class="pc-icon">💊</div>
+                <div class="pc-info">
+                    <h3 class="pc-name">Vitamin B-12</h3>
+                    <span class="pc-spec">10 MG</span>
+                    <span class="pc-cat" style="color:var(--cat-text);background:var(--cat-bg);border:1px solid var(--cat-border);" 
+                          data-cat-bg="" 
+                          data-cat-border="" 
+                          data-cat-text="">Suplemento | Supplement</span>
+                </div>
+            </div>
+            <div class="pc-bottom">
+                <div class="pc-price-status">
+                    <span class="pc-price">U$ 48.90</span>
+                    <span class="pc-status st-ok">DISPONÍVEL</span>
+                </div>
+                <div class="pc-actions">
+                    <button class="btn-detail" onclick="abrirInfo(56)">DETAILS - Detalhes</button>
+                    <button class="btn-cart" onclick="adicionar(56)" >
+                        ADD TO CART - Adicionar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+  </div>
+  <div class="no-results" id="no-results" style="display:none">
+    <span>🔍</span>
+    No products found - Nenhum produto encontrado.
+  </div>
+</div>
+
+<!-- FAB -->
+<button class="cart-fab" id="cart-fab" onclick="toggleCartPanel()">
+  🛒<span class="badge" id="fab-badge">0</span>
+</button>
+
+<!-- CART PANEL -->
+<div class="cart-panel" id="cart-panel">
+  <h3>🛒 Order - Pedido (<span id="cart-count">0</span>)<button onclick="toggleCartPanel()">▾</button></h3>
+  <div class="cart-list" id="cart-list"></div>
+  <div class="coupon-row">
+    <input type="text" id="coupon-code" placeholder="Coupon Code - Cupom de Desconto">
+    <button onclick="aplicarCupom()">Apply - Aplicar</button>
+  </div>
+  <div id="ship-info-container" class="ship-row" style="display:none">
+    <span id="ship-info-text"></span>
+    <button class="btn-rm" style="background:rgba(255,255,255,0.15)" onclick="removerFrete()">✖</button>
+  </div>
+  <div id="discount-row" class="discount-line">
+    <span>Discount - Desconto (<span id="discount-name"></span>):</span>
+    <span>- U$ <span id="discount-val">0.00</span></span>
+  </div>
+  <div class="total-row">
+    <span>SUBTOTAL - TOTAL GERAL:</span>
+    <span>U$ <span id="total-val">0.00</span></span>
+  </div>
+  <button class="btn-checkout" onclick="abrirCheckout()">Payments - Pagamento</button>
+</div>
+
+<!-- MODAL INFO -->
+<div class="modal-overlay" id="modalInfo">
+  <div class="modal-box">
+    <h2 id="info-titulo"></h2>
+    <p id="info-spec" style="font-size:0.8rem;color:var(--text2);font-family:var(--mono);margin-bottom:0"></p>
+    <div class="modal-body" id="info-texto"></div>
+    <img id="info-imagem" src="" alt="Imagem do Produto"
+      style="width:100%;border-radius:12px;margin:12px 0;display:none;">
+    <button onclick="fecharInfo()" class="modal-close">Close -  Fechar</button>
+  </div>
+</div>
+
+<!-- MODAL CHECKOUT -->
+<div class="modal-overlay" id="modalCheckout">
+  <div class="modal-box" style="text-align:left">
+    <div class="modal-box" style="text-align:left">
+    <h2>📦 Delivery Details | Dados de Entrega</h2>
+    <div class="form-group"><input type="text" id="f_nome" placeholder="Full Name | Nome Completo"></div>
+    <div class="form-group"><input type="text" id="f_end" placeholder="Address (Street/Ave) | Endereço (Rua/Av)"></div>
+    <div class="form-row">
+      <input type="text" id="f_num" placeholder="No. | Nº" style="max-width:100px">
+      <input type="text" id="f_bairro" placeholder="Neighborhood | Bairro">
+    </div>
+    <div class="form-group"><input type="text" id="zip-code" placeholder="ZIP Code | Código Postal"></div>
+    <div class="form-group"><input type="text" id="f_comp" placeholder="Complement (Optional) | Complemento (Opcional)"></div>
+    <div class="form-row">
+      <input type="text" id="f_cidade" placeholder="City | Cidade">
+      <input type="text" id="f_estado" placeholder="State | UF" style="max-width:80px">
+    </div>
+    <div class="form-group"><input type="tel" id="f_tel" placeholder="WhatsApp"></div>
+    <div class="form-group">
+      <select id="f_pgto">
+        <option value="Zelle">Zelle </option>
+        <option value="Cartão de crédito">Cartão de Crédito (até 12x)</option>
+      </select>
+    </div>
+    <button onclick="enviarPedido()" class="btn-checkout" style="margin-top:0">SEND WHATSAPP - ENVIAR PARA WHATSAPP</button>
+    <button onclick="fecharCheckout()" style="background:none;border:none;width:100%;color:var(--text2);margin-top:14px;cursor:pointer;font-family:var(--font)">Close - Cancelar</button>
+  </div>
+</div>
+
+<script>
+// 1. DADOS E ESTADO
+const PRODUTOS = [{"id": 0, "nome": "5-Amino", "espec": "10 MG", "preco": 59.9, "info": "Inibidor Seletivo de NNMT: Atua bloqueando a enzima nicotinamida N-metiltransferase, o que eleva os níveis de NAD+ e SAM intracelular. Indica eficácia na reversão da obesidade e otimização do gasto energético basal. | Selective NNMT Inhibitor: Acts by blocking the nicotinamide N-methyltransferase enzyme, which elevates intracellular NAD+ and SAM levels. Indicates efficacy in reversing obesity and optimizing basal energy expenditure.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/5-Amino.webp"}, {"id": 1, "nome": "5-Amino Oral", "espec": "50 MG", "preco": 129.9, "info": "Inibidor Seletivo de NNMT: Atua bloqueando a enzima nicotinamida N-metiltransferase, o que eleva os níveis de NAD+ e SAM intracelular. Indica eficácia na reversão da obesidade e otimização do gasto energético basal. | Selective NNMT Inhibitor: Acts by blocking the nicotinamide N-methyltransferase enzyme, which elevates intracellular NAD+ and SAM levels. Indicates efficacy in reversing obesity and optimizing basal energy expenditure.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/5-Amino Oral.webp"}, {"id": 2, "nome": "AICAR", "espec": "50 MG", "preco": 71.9, "info": "Ativador de AMPK: Mimetiza o AMP intracelular para ativar a proteína quinase. Investigado por aumentar a captação de glicose muscular, a oxidação de ácidos graxos e a resistência cardiovascular. | AMPK Activator: Mimics intracellular AMP to activate protein kinase. Investigated for increasing muscle glucose uptake, fatty acid oxidation, and cardiovascular endurance.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/AICAR.webp"}, {"id": 3, "nome": "AOD 9604", "espec": "5 MG", "preco": 55.9, "info": "Análogo Lipolítico do hGH: Focado no isolamento das propriedades de queima de gordura do GH sem induzir efeitos hiperglicêmicos. Aplicado em estudos de obesidade e regeneração de cartilagem. | Lipolytic hGH Analog: Focused on isolating the fat-burning properties of GH without inducing hyperglycemic effects. Applied in obesity and cartilage regeneration studies.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/AOD 9604.webp"}, {"id": 4, "nome": "AOD 9604", "espec": "10 MG", "preco": 98.9, "info": "Análogo Lipolítico do hGH: Focado no isolamento das propriedades de queima de gordura do GH sem induzir efeitos hiperglicêmicos. Aplicado em estudos de obesidade e regeneração de cartilagem. | Lipolytic hGH Analog: Focused on isolating the fat-burning properties of GH without inducing hyperglycemic effects. Applied in obesity and cartilage regeneration studies.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/AOD 9604.webp"}, {"id": 5, "nome": "ARA 290", "espec": "10 MG", "preco": 63.9, "info": "Agonista de Receptor de Reparo Inato: Derivado da eritropoietina sem efeitos hematológicos. Pesquisado para dor neuropática severa e regeneração nervosa periférica. | Innate Repair Receptor Agonist: Derived from erythropoietin without hematological effects. Researched for severe neuropathic pain and peripheral nerve regeneration.", "cat": "Recuperação | Recovery", "icon": "🩹", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/ARA 290.webp"}, {"id": 6, "nome": "Bacteriostatic Water", "espec": "3 ML", "preco": 6.99, "info": "Solvente Bacteriostático: Água com 0,9% de Álcool Benzílico. Impede proliferação bacteriana, permitindo uso seguro por até 30 dias. | Bacteriostatic Water: Water with 0.9% Benzyl Alcohol. Prevents bacterial proliferation, allowing safe use for up to 30 days.", "cat": "Acessório | Accessory", "icon": "💧", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Bacteriostatic Water.webp"}, {"id": 7, "nome": "Bacteriostatic Water", "espec": "10 ML", "preco": 9.99, "info": "Solvente Bacteriostático: Água com 0,9% de Álcool Benzílico. Impede proliferação bacteriana, permitindo uso seguro por até 30 dias. | Bacteriostatic Water: Water with 0.9% Benzyl Alcohol. Prevents bacterial proliferation, allowing safe use for up to 30 days.", "cat": "Acessório | Accessory", "icon": "💧", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Bacteriostatic Water.webp"}, {"id": 8, "nome": "BPC-157", "espec": "5 MG", "preco": 57.99, "info": "Pentadecapeptídeo Gástrico: Acelera a angiogênese e cicatrização. Estudado para cura de rupturas de tendões, ligamentos, danos musculares e tecidos moles. | Gastric Pentadecapeptide: Accelerates angiogenesis and healing. Studied for the healing of tendon ruptures, ligaments, muscle damage, and soft tissues.", "cat": "Recuperação | Recovery", "icon": "🩹", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/BPC-157.webp"}, {"id": 9, "nome": "BPC-157 Oral", "espec": "500 MG", "preco": 169.9, "info": "Pentadecapeptídeo Gástrico: Acelera a angiogênese e cicatrização. Estudado para cura de rupturas de tendões, ligamentos, danos musculares e tecidos moles. | Gastric Pentadecapeptide: Accelerates angiogenesis and healing. Studied for the healing of tendon ruptures, ligaments, muscle damage, and soft tissues.", "cat": "Recuperação | Recovery", "icon": "🩹", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/BPC-157 Oral.webp"}, {"id": 10, "nome": "CJC-1295", "espec": "2 MG", "preco": 30.9, "info": "Secretagogo de GH de Longa Duração: Análogo do GHRH que aumenta secreção de GH e IGF-1. Aplicado em antienvelhecimento, melhora da composição corporal e síntese proteica acelerada. | Long-Acting GH Secretagogue: GHRH analog that increases GH and IGF-1 secretion. Applied in anti-aging, improved body composition, and accelerated protein synthesis.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/CJC-1295.webp"}, {"id": 11, "nome": "CJC-1295 + Ipamorelin", "espec": "10 MG", "preco": 82.9, "info": "Secretagogo de GH de Longa Duração: Análogo do GHRH que aumenta secreção de GH e IGF-1. Aplicado em antienvelhecimento, melhora da composição corporal e síntese proteica acelerada. | Long-Acting GH Secretagogue: GHRH analog that increases GH and IGF-1 secretion. Applied in anti-aging, improved body composition, and accelerated protein synthesis.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/CJC-1295 + Ipamorelin.webp"}, {"id": 12, "nome": "DSIP", "espec": "5 MG", "preco": 48.89, "info": "Indutor de Sono Delta: Neuromodulador que sincroniza ritmos biológicos, promove sono profundo e mitiga sintomas de estresse emocional. | Delta Sleep-Inducing Peptide: Neuromodulator that synchronizes biological rhythms, promotes deep sleep, and mitigates emotional stress symptoms.", "cat": "Cognitivo | Cognitive", "icon": "🧠", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/DSIP.webp"}, {"id": 13, "nome": "Epithalon", "espec": "50 MG", "preco": 109.9, "info": "Ativador da Telomerase: Induz o alongamento dos telômeros. Focado na extensão da vida celular e restauração da secreção de melatonina. | Telomerase Activator: Induces telomere lengthening. Focused on cellular life extension and melatonin secretion restoration.", "cat": "Longevidade | Longevity", "icon": "⏳", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Epithalon.webp"}, {"id": 14, "nome": "GHK-Cu", "espec": "50 MG", "preco": 58.9, "info": "Complexo Peptídeo-Cobre: Atua na remodelação do DNA e síntese de colágeno I e III. Possui propriedades antioxidantes e anti-inflamatórias para pele e tecidos conectivos. | Copper Peptide Complex: Acts on DNA remodeling and collagen I and III synthesis. Features antioxidant and anti-inflammatory properties for skin and connective tissues.", "cat": "Estética | Aesthetics", "icon": "✨", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/GHK-Cu.webp"}, {"id": 15, "nome": "GHK-Cu", "espec": "100 MG", "preco": 81.9, "info": "Complexo Peptídeo-Cobre: Atua na remodelação do DNA e síntese de colágeno I e III. Possui propriedades antioxidantes e anti-inflamatórias para pele e tecidos conectivos. | Copper Peptide Complex: Acts on DNA remodeling and collagen I and III synthesis. Features antioxidant and anti-inflammatory properties for skin and connective tissues.", "cat": "Estética | Aesthetics", "icon": "✨", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/GHK-Cu.webp"}, {"id": 16, "nome": "GHRP-6", "espec": "5 MG", "preco": 30.9, "info": "Peptídeo Liberador de GH: Estimula a hipófise e aumenta a sinalização da fome via grelina. Focado em recuperação de tecidos, aumento de massa bruta e estados catabólicos. | GH-Releasing Peptide: Stimulates the pituitary and increases hunger signaling via ghrelin. Focused on tissue recovery, increased raw mass, and catabolic states.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/GHRP-6.webp"}, {"id": 17, "nome": "GLOW", "espec": "70 MG", "preco": 125.0, "info": "Bioestimulação Dérmica (GHK-Cu + BPC + TB): Blend estético-regenerativo focado em rejuvenescimento cutâneo, redução de cicatrizes e regeneração da matriz extracelular. | Dermal Biostimulation (GHK-Cu + BPC + TB): Aesthetic-regenerative blend focused on skin rejuvenation, scar reduction, and extracellular matrix regeneration.", "cat": "Estética | Aesthetics", "icon": "✨", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/GLOW.webp"}, {"id": 18, "nome": "HCG", "espec": "5000ui nan", "preco": 53.9, "info": "Mimetizador de LH: Sinaliza aos testículos a produção de testosterona. Vital para prevenir atrofia testicular e reinício do eixo hormonal (TPC). | LH Mimetic: Signals the testes to produce testosterone. Vital for preventing testicular atrophy and hormonal axis restart (PCT).", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/HCG.webp"}, {"id": 19, "nome": "Hemp Oil", "espec": "60 ML", "preco": 24.9, "info": "Suporte Fitocanabinoide: Propriedades analgésicas e anti-inflamatórias. Suporta o sistema endocanabinoide. | Phytocannabinoid Support: Analgesic and anti-inflammatory properties. Supports the endocannabinoid system.", "cat": "Suplemento | Supplement", "icon": "💊", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Hemp Oil.webp"}, {"id": 20, "nome": "Hexarelin", "espec": "2 MG", "preco": 57.69, "info": "Potencializador de Força: Secretagogo potente da classe GHRP. Aumenta a força contrátil cardíaca e muscular, protegendo o miocárdio e promovendo volume fibroso. | Strength Enhancer: Potent secretagogue of the GHRP class. Increases cardiac and muscular contractile strength, protecting the myocardium and promoting fibrous volume.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Hexarelin.webp"}, {"id": 21, "nome": "HGH Fragment 176-191", "espec": "5 MG", "preco": 52.9, "info": "Modulador de Lipídios: Parte terminal do GH responsável pela quebra de gordura. Mostra capacidade de inibir a formação de nova gordura e acelerar a lipólise visceral sem alterar a insulina. | Lipid Modulator: Terminal part of GH responsible for fat breakdown. Shows ability to inhibit new fat formation and accelerate visceral lipolysis without altering insulin.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/HGH Fragment 176-191.webp"}, {"id": 22, "nome": "Hyaluronic Acid 2% + GHK", "espec": "30 ML", "preco": 77.9, "info": "Arquitetura Extracelular: Une hidratação profunda (HA) com sinalização regenerativa (GHK). | Extracellular Architecture: Combines deep hydration (HA) with regenerative signaling (GHK).", "cat": "Estética | Aesthetics", "icon": "✨", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Hyaluronic Acid 2% + GHK.webp"}, {"id": 23, "nome": "IGF DES", "espec": "2 MG", "preco": 80.9, "info": "Variante de IGF-1 de Ação Local: Afinidade 10x maior pelos receptores. Ideal para aplicação pós-treino visando recuperação imediata e crescimento muscular localizado. | Local-Acting IGF-1 Variant: 10x greater affinity for receptors. Ideal for post-workout application aiming for immediate recovery and localized muscle growth.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/IGF DES.webp"}, {"id": 24, "nome": "IGF-1 LR3", "espec": "1 MG", "preco": 108.99, "info": "Análogo de IGF-1 de Meia-vida Longa: Permanece ativo por até 20 horas. Principal mediador da hiperplasia (criação de novas fibras musculares) e transporte de acesso de aminoácidos. | Long-Acting IGF-1 Analog: Remains active for up to 20 hours. Primary mediator of hyperplasia (creation of new muscle fibers) and amino acid transport access.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/IGF-1 LR3.webp"}, {"id": 25, "nome": "Ipamorelin", "espec": "5 MG", "preco": 74.9, "info": "Agonista de Grelina Seletivo: Estimula a liberação pulsátil de GH sem elevar cortisol ou prolactina. Seguro para indução de anabolismo e melhora da density mineral óssea. | Selective Ghrelin Agonist: Stimulates pulsatile GH release without elevating cortisol or prolactin. Safe for inducing anabolism and improving bone mineral density.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Ipamorelin.webp"}, {"id": 26, "nome": "Ipamorelin", "espec": "10 MG", "preco": 74.9, "info": "Agonista de Grelina Seletivo: Estimula a liberação pulsátil de GH sem elevar cortisol ou prolactina. Seguro para indução de anabolismo e melhora da density mineral óssea. | Selective Ghrelin Agonist: Stimulates pulsatile GH release without elevating cortisol or prolactin. Safe for inducing anabolism and improving bone mineral density.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Ipamorelin.webp"}, {"id": 27, "nome": "Kisspeptin", "espec": "10 MG", "preco": 59.89, "info": "Regulador de Eixo HPG: Atua no hipotálamo para restaurar a produção natural de testosterona e regular a função reprodutiva de forma fisiológica. | HPG Axis Regulator: Acts in the hypothalamus to restore natural testosterone production and regulate reproductive function physiologically.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Kisspeptin.webp"}, {"id": 28, "nome": "KLOW", "espec": "80 MG", "preco": 145.0, "info": "Quarteto de Reparo Profundo (GHK+BPC+TB+KPV): Projetado para sinalização celular máxima em remodelação de tecidos complexos e equilíbrio imunológico. | Deep Repair Quartet (GHK+BPC+TB+KPV): Designed for maximum cellular signaling in complex tissue remodeling and immune balance.", "cat": "Recuperação | Recovery", "icon": "🩹", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/KLOW.webp"}, {"id": 29, "nome": "KPV", "espec": "10 MG", "preco": 60.99, "info": "Tripeptídeo Anti-inflamatório: Inibe vias inflamatórias (NF-κB). Possui propriedades antimicrobianas e é utilizado em estudos sobre dermatite e colite. | Anti-inflammatory Tripeptide: Inhibits inflammatory pathways (NF-κB). Possesses antimicrobial properties and is used in studies on dermatitis and colitis.", "cat": "Imunidade | Immunity", "icon": "🛡️", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/KPV.webp"}, {"id": 30, "nome": "L-Carnitine", "espec": "500 MG", "preco": 48.89, "info": "Cofator de Transporte Mitocondrial: Essencial para o transporte de ácidos graxos para a matriz mitocondrial (β-oxidação). Reduz a fadiga muscular e suporta a performance atlética. | Mitochondrial Transport Cofactor: Essential for the transport of fatty acids to the mitochondrial matrix (β-oxidation). Reduces muscle fatigue and supports athletic performance.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/L-Carnitine.webp"}, {"id": 31, "nome": "Lipo C 120", "espec": "120 MG", "preco": 48.9, "info": "Mix Lipotrópico Injetável: Composto por Metionina, Inositol e Colina. Atua na exportação de gorduras do fígado e na otimização da mobilização lipídica sistêmica. | Injectable Lipotropic Mix: Composed of Methionine, Inositol, and Choline. Acts on the export of fats from the liver and the optimization of systemic lipid mobilization.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Lipo C 120.webp"}, {"id": 32, "nome": "Lipo C 425", "espec": "425 MG", "preco": 59.9, "info": "Mix Lipotrópico Injetável: Composto por Metionina, Inositol e Colina. Atua na exportação de gorduras do fígado e na otimização da mobilização lipídica sistêmica. | Injectable Lipotropic Mix: Composed of Methionine, Inositol, and Choline. Acts on the export of fats from the liver and the optimization of systemic lipid mobilization.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Lipo C 425.webp"}, {"id": 33, "nome": "LL-37", "espec": "5 MG", "preco": 81.9, "info": "Peptídeo Antimicrobiano: Parte do sistema imune inato. Neutraliza endotoxinas bacterianas, modula a resposta inflamatória e acelera cicatrização de feridas infectadas. | Antimicrobial Peptide: Part of the innate immune system. Neutralizes bacterial endotoxins, modulates the inflammatory response, and accelerates healing of infected wounds.", "cat": "Imunidade | Immunity", "icon": "🛡️", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/LL-37.webp"}, {"id": 34, "nome": "Melanotan 1", "espec": "10 MG", "preco": 48.9, "info": "Agonista de Melanocortina Seletivo: Estimula a liberação de melanina com alta segurança e proteção contra danos UV. | Selective Melanocortin Agonist: Stimulates melanin release with high safety and protection against UV damage.", "cat": "Estética | Aesthetics", "icon": "✨", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Melanotan 1.webp"}, {"id": 35, "nome": "Melanotan 2", "espec": "10 MG", "preco": 48.9, "info": "Bronzeamento e Libido: Atua no SNC aumentando a pigmentação da pele, elevando o desejo sexual e reduzindo o apetite. | Tanning and Libido: Acts on the CNS increasing skin pigmentation, boosting sexual desire, and reducing appetite.", "cat": "Estética | Aesthetics", "icon": "✨", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Melanotan 2.webp"}, {"id": 36, "nome": "Methylene Blue", "espec": "60 ML", "preco": 24.9, "info": "Otimizador Mitocondrial (Azul de Metileno): Transportador alternativo de elétrons. Melhora a memória de curto prazo e protege contra neurodegeneração. | Mitochondrial Optimizer (Methylene Blue): Alternative electron carrier. Improves short-term memory and protects against neurodegeneration.", "cat": "Cognitivo | Cognitive", "icon": "🧠", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Methylene Blue.webp"}, {"id": 37, "nome": "MK-677", "espec": "10 MG", "preco": 103.9, "info": "Secretagogo Oral (Ibutamoren): Agonista dos receptores de grelina. Aumenta sustentadamente os níveis de GH e IGF-1, aumentando a massa livre de gordura e densidade óssea. | Oral Secretagogue (Ibutamoren): Ghrelin receptor agonist. Sustainably increases GH and IGF-1 levels, increasing fat-free mass and bone density.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/MK-677.webp"}, {"id": 38, "nome": "MOTS-c", "espec": "10 MG", "preco": 76.9, "info": "Peptídeo Derivado da Mitocôndria: Regulador hormonal do metabolismo sistêmico. Melhora a homeostase da glicose e combate a resistência à insulina via ativação da via AMPK. | Mitochondrial-Derived Peptide: Hormonal regulator of systemic metabolism. Improves glucose homeostasis and combats insulin resistance via activation of the AMPK pathway.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/MOTS-c.webp"}, {"id": 39, "nome": "MOTS-c", "espec": "40 MG", "preco": 155.0, "info": "Peptídeo Derivado da Mitocôndria: Regulador hormonal do metabolismo sistêmico. Melhora a homeostase da glicose e combate a resistência à insulina via ativação da via AMPK. | Mitochondrial-Derived Peptide: Hormonal regulator of systemic metabolism. Improves glucose homeostasis and combats insulin resistance via activation of the AMPK pathway.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/MOTS-c.webp"}, {"id": 40, "nome": "NAD+", "espec": "100 MG", "preco": 108.9, "info": "Coenzima de Vitalidade: Essencial para reparação do DNA e sirtuínas. Associado à reversão de marcadores de envelhecimento e aumento da energia celular. | Vitality Coenzyme: Essential for DNA repair and sirtuins. Associated with reversing aging markers and increasing cellular energy.", "cat": "Longevidade | Longevity", "icon": "⏳", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/NAD+.webp"}, {"id": 41, "nome": "Oxytocin", "espec": "2 MG", "preco": 37.9, "info": "Neuromodulador Social: Regula confiança, redução de medo e ansiedade social. Explorado também na regulação do apetite por carboidratos. | Social Neuromodulator: Regulates trust, fear reduction, and social anxiety. Also explored in carbohydrate appetite regulation.", "cat": "Cognitivo | Cognitive", "icon": "🧠", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Oxytocin.webp"}, {"id": 42, "nome": "Pinealon", "espec": "10 MG", "preco": 76.9, "info": "Bioregulador de Cadeia Curta: Atua na expressão gênica neuronal. Restaura o ritmo circadiano e protege contra o estresse oxidativo cerebral. | Short-Chain Bioregulator: Acts on neuronal gene expression. Restores circadian rhythm and protects against cerebral oxidative stress.", "cat": "Cognitivo | Cognitive", "icon": "🧠", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Pinealon.webp"}, {"id": 43, "nome": "PT-141 Bremelanotide", "espec": "10 MG", "preco": 59.9, "info": "Tratamento de Disfunção Sexual: Atua via SNC nos centros de excitação do cérebro. Indicado para desejo sexual hipoativo. | Sexual Dysfunction Treatment: Acts via the CNS on the brain's arousal centers. Indicated for hypoactive sexual desire.", "cat": "Sexual | Sexual", "icon": "❤️", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/PT-141 Bremelanotide.webp"}, {"id": 44, "nome": "Selank", "espec": "5 MG", "preco": 46.99, "info": "Ansiolítico Regulador: Modula serotonina e norepinefrina. Reduz ansiedade e melhora o foco cognitivo sem o efeito sedativo dos ansiolíticos comuns. | Regulating Anxiolytic: Modulates serotonin and norepinephrine. Reduces anxiety and improves cognitive focus without the sedative effect of common anxiolytics.", "cat": "Cognitivo | Cognitive", "icon": "🧠", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Selank.webp"}, {"id": 45, "nome": "Semax", "espec": "10 MG", "preco": 46.99, "info": "Nootrópico Neuroprotetor: Eleva níveis de BDNF e NGF no hipocampo. Aplicado em recuperação pós-AVC e otimização do aprendizado sob estresse. | Neuroprotective Nootropic: Elevates BDNF and NGF levels in the hippocampus. Applied in post-stroke recovery and learning optimization under stress.", "cat": "Cognitivo | Cognitive", "icon": "🧠", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Semax.webp"}, {"id": 46, "nome": "Sermorelin", "espec": "5 MG", "preco": 50.9, "info": "Estimulador de Eixo Natural: Mimetiza o GHRH natural. Promove melhorias na qualidade do sono profundo, vitalidade da pele e recuperação pós-esforço. | Natural Axis Stimulator: Mimics natural GHRH. Promotes improvements in deep sleep quality, skin vitality, and post-exertion recovery.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Sermorelin.webp"}, {"id": 47, "nome": "Sermorelin", "espec": "10 MG", "preco": 89.9, "info": "Estimulador de Eixo Natural: Mimetiza o GHRH natural. Promove melhorias na qualidade do sono profundo, vitalidade da pele e recuperação pós-esforço. | Natural Axis Stimulator: Mimics natural GHRH. Promotes improvements in deep sleep quality, skin vitality, and post-exertion recovery.", "cat": "Hormônios | Hormones", "icon": "💉", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Sermorelin.webp"}, {"id": 48, "nome": "SLU PP", "espec": "5 MG", "preco": 134.9, "info": "Agonista Pan-ERR (Pílula do Exercício): Ativa receptores ERRα, β, γ. Aumenta drasticamente a biogênese mitocondrial e a resistência física, comparável ao treino de alta intensidade. | Pan-ERR Agonist (Exercise Pill): Activates ERRα, β, γ receptors. Drastically increases mitochondrial biogenesis and physical endurance, comparable to high-intensity training.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/SLU PP.webp"}, {"id": 49, "nome": "SS-31", "espec": "10 MG", "preco": 65.0, "info": "Protetor de Cardiolipina: Previne a formação de radicais livres na mitocôndria e restaura a produção de ATP. | Cardiolipin Protector: Prevents the formation of free radicals in the mitochondria and restores ATP production.", "cat": "Longevidade | Longevity", "icon": "⏳", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/SS-31.webp"}, {"id": 50, "nome": "SS-31", "espec": "50 MG", "preco": 210.0, "info": "Protetor de Cardiolipina: Previne a formação de radicais livres na mitocôndria e restaura a produção de ATP. | Cardiolipin Protector: Prevents the formation of free radicals in the mitochondria and restores ATP production.", "cat": "Longevidade | Longevity", "icon": "⏳", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/SS-31.webp"}, {"id": 51, "nome": "TB-500", "espec": "5 MG", "preco": 85.0, "info": "Timosina Beta-4 Sintética: Essencial para migração celular e reparo de tecidos. Promove formação de novos vasos e reduz inflamação articular e miocárdica. | Synthetic Thymosin Beta-4: Essential for cell migration and tissue repair. Promotes formation of new vessels and reduces joint and myocardial inflammation.", "cat": "Recuperação | Recovery", "icon": "🩹", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/TB-500.webp"}, {"id": 52, "nome": "TB-500", "espec": "10 MG", "preco": 85.0, "info": "Timosina Beta-4 Sintética: Essencial para migração celular e reparo de tecidos. Promove formação de novos vasos e reduz inflamação articular e miocárdica. | Synthetic Thymosin Beta-4: Essential for cell migration and tissue repair. Promotes formation of new vessels and reduces joint and myocardial inflammation.", "cat": "Recuperação | Recovery", "icon": "🩹", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/TB-500.webp"}, {"id": 53, "nome": "TB-500 + BPC blend", "espec": "10 MG", "preco": 98.9, "info": "Timosina Beta-4 Sintética: Essencial para migração celular e reparo de tecidos. Promove formação de novos vasos e reduz inflamação articular e miocárdica. | Synthetic Thymosin Beta-4: Essential for cell migration and tissue repair. Promotes formation of new vessels and reduces joint and myocardial inflammation.", "cat": "Recuperação | Recovery", "icon": "🩹", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/TB-500 + BPC blend.webp"}, {"id": 54, "nome": "Tesamorelin", "espec": "10 MG", "preco": 86.9, "info": "Redutor de Lipodistrofia: Único aprovado para reduzir gordura visceral abdominal severa. | Lipodystrophy Reducer: Only one approved to reduce severe abdominal visceral fat.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Tesamorelin.webp"}, {"id": 55, "nome": "Tesamorelin", "espec": "15 MG", "preco": 115.0, "info": "Redutor de Lipodistrofia: Único aprovado para reduzir gordura visceral abdominal severa. | Lipodystrophy Reducer: Only one approved to reduce severe abdominal visceral fat.", "cat": "Metabolismo | Metabolism", "icon": "🔥", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Tesamorelin.webp"}, {"id": 56, "nome": "Vitamin B-12", "espec": "10 MG", "preco": 48.9, "info": "Metilcobalamina de Alta Potência: Essencial para a bainha de mielina, produção de glóbulos vermelhos e prevenção da fadiga neuromuscular. | High-Potency Methylcobalamin: Essential for the myelin sheath, red blood cell production, and neuromuscular fatigue prevention.", "cat": "Suplemento | Supplement", "icon": "💊", "catBg": "rgba(158,158,158,0.12)", "catBorder": "#9e9e9e", "catText": "#9e9e9e", "imagem": "imagens_produtos/Vitamin B-12.webp"}];
+let carrinho = [];
+let freteV = 12
+let freteD = "Flat Rate: $ 12.00 | Frete Único: $ 12,00";
+let cupomAtivo = null;
+let catAtual = "all";
+let apenasDisp = false;
+
+// 2. FUNÇÃO DE BUSCA DE CEP (ESSENCIAL)
+async function buscarDadosCep(cep) {
+    try {
+        const r = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const d = await r.json();
+        if(!d.erro) return {localidade:d.localidade, uf:d.uf.toUpperCase(), logradouro:d.logradouro, bairro:d.bairro};
+    } catch(e) {}
+    return null;
+}
+
+// 3. FUNÇÃO DE FRETE (FIXA EM 12 DÓLARES)
+async function calcularFrete() {
+    const campoCep = document.getElementById('cep-destino');
+    if(!campoCep) return;
+    const cep = campoCep.value.replace(/\D/g,'');
+    const btn = document.getElementById('btn-calc');
+    
+    if(cep.length !== 8) { alert("CEP inválido"); return; }
+    
+    if(btn) { btn.disabled = true; btn.textContent = "..."; }
+
+    const data = await buscarDadosCep(cep);
+    
+    if(!data) { 
+        alert("CEP não encontrado"); 
+        if(btn) { btn.disabled = false; btn.textContent = "Locate"; }
+        return; 
+    }
+
+    freteV = 12; 
+    freteD = "Flat Rate: $ 12.00 | Frete Único: $ 12,00";
+
+    document.getElementById('f_cidade').value = data.localidade;
+    document.getElementById('f_estado').value = data.uf;
+    document.getElementById('f_end').value = data.logradouro;
+    document.getElementById('f_bairro').value = data.bairro;
+    document.getElementById('resultado-frete').textContent = '✅ ' + data.localidade + '-' + data.uf + ': ' + freteD;
+    
+    atualizarCarrinho();
+    if(btn) { btn.disabled = false; btn.textContent = "Locate"; }
+}
+
+// 4. FUNÇÕES DE INTERFACE
+function abrirInfo(id) {
+    const p = PRODUTOS.find(x => x.id === id);
+    if(p) {
+        document.getElementById('info-titulo').textContent = p.nome;
+        document.getElementById('info-spec').textContent = p.espec + ' — ' + p.cat;
+        document.getElementById('info-texto').textContent = p.info;
+        document.getElementById('info-imagem').src = encodeURI(p.imagem);
+        document.getElementById('info-imagem').style.display = 'block';
+        document.getElementById('modalInfo').style.display = 'block';
+    }
+}
+
+function fecharInfo() { document.getElementById('modalInfo').style.display = 'none'; }
+
+function abrirCheckout() {
+    
+    document.getElementById('modalCheckout').style.display = 'block';
+}
+
+function fecharCheckout() { document.getElementById('modalCheckout').style.display = 'none'; }
+
+// 5. CARRINHO
+function adicionar(id) {
+    const p = PRODUTOS.find(x => x.id === id);
+    if(p) {
+        const ex = carrinho.find(i => i.id === id);
+        if(ex) ex.qtd += 1; else carrinho.push({...p, qtd: 1});
+        atualizarCarrinho();
+    }
+}
+
+function remover(id) {
+    const ex = carrinho.find(x => x.id === id);
+    if(ex) { if(ex.qtd > 1) ex.qtd--; else carrinho = carrinho.filter(x => x.id !== id); }
+    if(!carrinho.length) removerFrete();
+    atualizarCarrinho();
+}
+
+function atualizarCarrinho() {
+    const list = document.getElementById('cart-list');
+    const panel = document.getElementById('cart-panel');
+    const fab = document.getElementById('cart-fab');
+    const totalUn = carrinho.reduce((a,i) => a + i.qtd, 0);
+    
+    // Controle do botão flutuante e contadores
+    if(fab) fab.style.display = carrinho.length ? 'flex' : 'none';
+    document.getElementById('fab-badge').textContent = totalUn;
+    document.getElementById('cart-count').textContent = totalUn;
+    
+    list.innerHTML = '';
+    let subtotal = 0;
+
+    // Renderização dos itens
+    carrinho.forEach(item => {
+        const vt = item.preco * item.qtd;
+        subtotal += vt;
+        list.innerHTML += `<div class="cart-item">
+            <span><strong>${item.qtd}x</strong> ${item.nome}</span>
+            <span>U$ ${vt.toFixed(2)} <button class="btn-rm" onclick="remover(${item.id})">−</button></span>
+        </div>`;
+    });
+
+    // Lógica do Cupom
+    let desc = cupomAtivo ? subtotal * cupomAtivo.desc : 0;
+    const discRow = document.getElementById('discount-row');
+    if(discRow) {
+        discRow.style.display = cupomAtivo ? 'flex' : 'none';
+        if(cupomAtivo) {
+            document.getElementById('discount-name').textContent = cupomAtivo.nome;
+            document.getElementById('discount-val').textContent = desc.toFixed(2);
+        }
+    }
+
+    // INCLUSÃO DO FRETE FIXO
+    // Definimos os valores caso o carrinho não esteja vazio
+    if (carrinho.length > 0) {
+        freteV = 12;
+        freteD = "Flat Rate: $ 12.00 | Frete Único: $ 12,00";
+    } else {
+        freteV = 0;
+        freteD = "";
+    }
+
+    const sc = document.getElementById('ship-info-container');
+    const st = document.getElementById('ship-info-text');
+    
+    if(sc) sc.style.display = freteV > 0 ? 'flex' : 'none';
+    if(st && freteV > 0) st.textContent = '🚚 ' + freteD;
+
+    // CÁLCULO TOTAL FINAL
+    const totalFinal = subtotal - desc + freteV;
+    document.getElementById('total-val').textContent = totalFinal.toLocaleString('pt-BR', {
+        minimumFractionDigits: 2, 
+        maximumFractionDigits: 2
+    });
+}
+
+function removerFrete() { freteV=0; freteD=""; document.getElementById('resultado-frete').textContent=""; atualizarCarrinho(); }
+
+function toggleCartPanel() {
+    const p = document.getElementById('cart-panel');
+    p.style.display = p.style.display === 'block' ? 'none' : 'block';
+}
+
+// 6. FILTROS E CUPOM
+function filtrarProdutos() {
+    const q = document.getElementById('search-input').value.toLowerCase();
+    const cards = document.querySelectorAll('.product-card');
+    let visible = 0;
+    cards.forEach(c => {
+        const name = c.querySelector('.pc-name').textContent.toLowerCase();
+        const cat = c.dataset.cat;
+        const avail = c.dataset.available === '1';
+        const show = (!q || name.includes(q)) && (catAtual === 'all' || cat === catAtual) && (!apenasDisp || avail);
+        c.style.display = show ? '' : 'none';
+        if(show) visible++;
+    });
+    document.getElementById('no-results').style.display = visible === 0 ? '' : 'none';
+}
+
+function filtrarCat(cat) {
+    catAtual = cat;
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+    filtrarProdutos();
+}
+
+function toggleAvail() {
+    apenasDisp = !apenasDisp;
+    document.getElementById('toggle-avail').classList.toggle('active', apenasDisp);
+    filtrarProdutos();
+}
+
+function aplicarCupom() {
+    const code = document.getElementById('coupon-code').value.trim().toUpperCase();
+    const cupons = {'BRUNA5':0.05,'DANI5':0.05,'GILMARA5':0.05,'DAFNE10':0.10,'NOS5':0.05,'ROGERIO5':0.05,
+    'ANDERSON5':0.05,'JAQUE5':0.05,'CABRAL5':0.05,'KARLINHA5':0.05,'LUD5':0.05,'CASSIA5':0.05,'THAIS5':0.05,
+    'NATAN':0.00000000001,'LIRICY5':0.05,'ANDREAFLEURY':0.05,'ANA5':0.05,'10PRO':0.000000000001,'PRO5':0.05,
+    'WEY5':0.05,'ALE5':0.05,'TRIGUEIRO':0.05,'RAYSSA5':0.05,'BRUNA11':0.11};
+    
+    if(cupons[code]) { cupomAtivo = {nome:code, desc:cupons[code]}; alert("Coupon applied - Cupom aplicado!"); }
+    else { cupomAtivo = null; alert("Invalid coupon - Cupom inválido."); }
+    atualizarCarrinho();
+}
+
+// 7. FINALIZAÇÃO E WHATSAPP
+function enviarPedido() {
+    // 1. Coleta dos dados do formulário
+    const d = {
+        n: document.getElementById('f_nome').value.trim().toUpperCase(),
+        e: document.getElementById('f_end').value.trim().toUpperCase(),
+        nu: document.getElementById('f_num').value.trim(),
+        ba: document.getElementById('f_bairro').value.trim().toUpperCase(),
+        co: document.getElementById('f_comp').value.trim().toUpperCase(),
+        ci: document.getElementById('f_cidade').value.trim().toUpperCase(),
+        es: document.getElementById('f_estado').value.trim().toUpperCase(),
+        ce: document.getElementById('zip-code').value.trim(),
+        t: document.getElementById('f_tel').value.trim(),
+        p: document.getElementById('f_pgto').value.toUpperCase()
+    };
+
+    // Validação básica
+    if(!d.n || !d.e || !d.nu || !d.t) { 
+        alert("Please fill in all required fields | Preencha os campos obrigatórios!"); 
+        return; 
+    }
+
+    // 2. Montagem da lista de itens
+    let sub = 0;
+    let msgI = "";
+    carrinho.forEach(i => {
+        const vt = i.preco * i.qtd;
+        sub += vt;
+        let linha = `• ${i.qtd}x ${i.nome.toUpperCase()} (${i.espec.toUpperCase()}) - U$ ${vt.toFixed(2)}`;
+        if(cupomAtivo) {
+            const vDesconto = vt - (vt * cupomAtivo.desc);
+            linha += ` → U$ ${vDesconto.toFixed(2)}`;
+        }
+        msgI += linha + "%0A";
+    });
+
+    let desc = cupomAtivo ? sub * cupomAtivo.desc : 0;
+
+    // 3. Montagem da Mensagem Final
+    let msg = "*NOVO PEDIDO G-LAB*%0A";
+    msg += "*CLIENTE:*%0A";
+    msg += "• *NOME:* " + d.n + "%0A";
+    msg += "• *WHATSAPP:* " + d.t + "%0A";
+    msg += "• *END:* " + d.e + ", " + d.nu + "%0A";
+    msg += "• *BAIRRO:* " + d.ba + "%0A";
+    
+    if(d.co) msg += "• *COMPL:* " + d.co + "%0A";
+    
+    msg += "• *CIDADE:* " + d.ci + "-" + d.es + "%0A";
+    msg += "• *ZIP CODE:* " + d.ce + "%0A";
+    msg += "• *PGTO:* " + d.p + "%0A";
+    
+    msg += "*ITENS:*%0A" + msgI;
+    
+    msg += "%0A🚚 *FRETE:* " + freteD.toUpperCase();
+
+    if(cupomAtivo) {
+        msg += "%0A🏷️ *CUPOM:* " + cupomAtivo.nome + " (-U$ " + desc.toFixed(2) + ")";
+    }
+    
+  
+    msg += "%0A*TOTAL: U$ " + (sub - desc + freteV).toFixed(2) + "*";
+
+    // 4. Envio
+    window.open("https://wa.me/+17743519845?text=" + msg, '_blank');
+}
+
+function gerarDestaques() {
+    const picks = PRODUTOS.slice(0, 6);
+    const container = document.getElementById('featured-scroll');
+    if(!container) return;
+    container.innerHTML = picks.map(p => `
+        <div class="feat-card">
+            <div class="feat-icon">${p.icon}</div>
+            <div class="feat-name">${p.nome}</div>
+            <div class="feat-price">U$ ${p.preco.toFixed(2)}</div>
+        </div>
+    `).join('');
+}
+
+// INIT
+gerarDestaques();
+filtrarProdutos();
+</script>
+</body>
+</html>
