@@ -859,7 +859,7 @@ function toggleAvail() {{
 
 function aplicarCupom() {{
     const code = document.getElementById('coupon-code').value.trim().toUpperCase();
-    const cupons = {{'BRUNA5':0.05,'BRUNA11':0.11, 'BRU11':0.11, 'PRO5':0.05, 'LARI5':0.05, 'AMANDA5':0.05, 'BRUNA10':0.10, 'MIKA5':0.05, 'PRIME5':0.05, 'WEY5':0.05, 'CASSIA5':0.05, 'LUD5':0.05, 'DANI5':0.05, 'GR26R':0.05, 'THA10':0.10, 'ESTEPHANY5':0.05, 'DAFNE10':0.10}};
+    const cupons = {{'BRUNA5':0.05,'BRUNA11':0.11, 'BRU11':0.11, 'PRO5':0.05, 'LARI5':0.05, 'AMANDA5':0.05, 'BRUNA10':0.10, 'MIKA5':0.05, 'PRIME5':0.05, 'WEY5':0.05, 'CASSIA5':0.05, 'LUD5':0.05, 'DANI5':0.05, 'GR26R':0.05, 'THA10':0.10, 'ESTEPHANY5':0.05, 'DAFNE10':0.10, 'GILMARA5':0.05}};
     
     if(cupons[code]) {{ cupomAtivo = {{nome:code, desc:cupons[code]}}; alert("Coupon applied - Cupom aplicado!"); }}
     else {{ cupomAtivo = null; alert("Invalid coupon - Cupom inválido."); }}
