@@ -657,8 +657,8 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
 // 1. DADOS E ESTADO
 const PRODUTOS = {js_produtos};
 let carrinho = [];
-let freteV = 12
-let freteD = "Flat Rate: $ 12.00 | Frete Único: $ 12,00";
+let freteV = 0
+let freteD = "Flat Rate: $ 12.00 | Frete Único: $ 0,00";
 let cupomAtivo = null;
 let catAtual = "all";
 let apenasDisp = false;
@@ -712,8 +712,8 @@ async function calcularFrete() {{
         return; 
     }}
 
-    freteV = 12; 
-    freteD = "Flat Rate: $ 12.00 | Frete Único: $ 12,00";
+    freteV = 0; 
+    freteD = "Flat Rate: $ 0.00 | Frete Único: $ 0,00";
 
     document.getElementById('f_cidade').value = data.localidade;
     document.getElementById('f_estado').value = data.uf;
@@ -801,8 +801,8 @@ function atualizarCarrinho() {{
     // INCLUSÃO DO FRETE FIXO
     // Definimos os valores caso o carrinho não esteja vazio
     if (carrinho.length > 0) {{
-        freteV = 12;
-        freteD = "Flat Rate: $ 12.00 | Frete Único: $ 12,00";
+        freteV = 0;
+        freteD = "Flat Rate: $ 0.00 | Frete Único: $ 0,00";
     }} else {{
         freteV = 0;
         freteD = "";
@@ -859,7 +859,7 @@ function toggleAvail() {{
 
 function aplicarCupom() {{
     const code = document.getElementById('coupon-code').value.trim().toUpperCase();
-    const cupons = {{'BRUNA5':0.05,'BRUNA11':0.11, 'BRU11':0.11, 'PRO5':0.05, 'LARI5':0.05, 'AMANDA5':0.05, 'BRUNA10':0.10, 'MIKA5':0.05, 'PRIME5':0.05, 'WEY5':0.05, 'CASSIA5':0.05, 'LUD5':0.05, 'DANI5':0.05, 'GR26R':0.05, 'THA10':0.10, 'ESTEPHANY5':0.05, 'DAFNE10':0.10, 'GILMARA5':0.05}};
+    const cupons = {{'BRUNA5':0.05,'BRUNA11':0.11, 'BRU11':0.11, 'PRO5':0.05, 'LARI5':0.05, 'AMANDA5':0.05, 'BRUNA10':0.10, 'MIKA5':0.05, 'PRIME5':0.05, 'WEY5':0.05, 'CASSIA5':0.05, 'LUD5':0.05, 'DANI5':0.05, 'GR26R':0.05, 'THA10':0.10, 'ESTEPHANY5':0.05, 'DAFNE10':0.10, 'GILMARA5':0.05, 'DUDA5': 0.05, 'DUDA10':0.10}};
     
     if(cupons[code]) {{ cupomAtivo = {{nome:code, desc:cupons[code]}}; alert("Coupon applied - Cupom aplicado!"); }}
     else {{ cupomAtivo = null; alert("Invalid coupon - Cupom inválido."); }}
