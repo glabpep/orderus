@@ -658,7 +658,7 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
 const PRODUTOS = {js_produtos};
 let carrinho = [];
 let freteV = 0
-let freteD = "Flat Rate: $ 12.00 | Frete Único: $ 0,00";
+let freteD = "Flat Rate: $ 12.00 | Frete Único: $ 12,00";
 let cupomAtivo = null;
 let catAtual = "all";
 let apenasDisp = false;
@@ -712,8 +712,8 @@ async function calcularFrete() {{
         return; 
     }}
 
-    freteV = 0; 
-    freteD = "Flat Rate: $ 0.00 | Frete Único: $ 0,00";
+    freteV = 12; 
+    freteD = "Flat Rate: $ 12.00 | Frete Único: $ 12,00";
 
     document.getElementById('f_cidade').value = data.localidade;
     document.getElementById('f_estado').value = data.uf;
@@ -801,8 +801,8 @@ function atualizarCarrinho() {{
     // INCLUSÃO DO FRETE FIXO
     // Definimos os valores caso o carrinho não esteja vazio
     if (carrinho.length > 0) {{
-        freteV = 0;
-        freteD = "Flat Rate: $ 0.00 | Frete Único: $ 0,00";
+        freteV = 12;
+        freteD = "Flat Rate: $ 12.00 | Frete Único: $ 12,00";
     }} else {{
         freteV = 0;
         freteD = "";
