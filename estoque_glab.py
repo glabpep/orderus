@@ -11,7 +11,7 @@ def gerar_site_vendas_completo():
     diretorio_atual = os.path.dirname(os.path.abspath(__file__))
     
     arquivo_dados = None
-    for nome in ['stock_0202 - NOVA.xlsx', 'stock_2901.xlsx - Plan1.csv']:
+    for nome in ['stock_0202 - NOVAUS.xlsx', 'stock_2901.xlsx - Plan1.csv']:
         caminho = os.path.join(diretorio_atual, nome)
         if os.path.exists(caminho):
             arquivo_dados = caminho
@@ -426,6 +426,8 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
   cursor:pointer;background:linear-gradient(135deg,var(--accent2),var(--accent));color:#fff;font-size:0.85rem;transition:opacity 0.2s}}
 .feat-btn:hover{{opacity:0.85}}
 
+
+
 /* ALERTS */
 .alert-bar{{background:var(--surface);border:1px solid var(--surface3);border-left:4px solid var(--accent);
   padding:14px 18px;border-radius:12px;margin-bottom:14px;font-size:0.85rem;line-height:1.5;color:var(--text2);position:relative}}
@@ -541,6 +543,21 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
   .logo-text{{font-size:1.8rem}}
   .feat-card{{min-width:240px}}
 }}
+
+.cert-bar{{background:var(--surface);border:1px solid var(--surface3);border-left:4px solid var(--green);
+  padding:14px 18px;border-radius:12px;margin-bottom:14px;font-size:0.85rem;line-height:1.5;color:var(--text2);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}}
+.cert-bar strong{{color:var(--text)}}
+.btn-cert{{padding:8px 16px;border:none;border-radius:10px;background:var(--green);color:#fff;
+  font-size:0.8rem;font-weight:600;font-family:var(--font);cursor:pointer;transition:opacity 0.2s;white-space:nowrap}}
+.btn-cert:hover{{opacity:0.85}}
+.cert-list{{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin:16px 0}}
+.cert-link{{display:flex;align-items:center;justify-content:center;gap:6px;padding:14px 10px;
+  background:var(--surface2);border:1px solid var(--surface3);border-radius:12px;color:var(--text);
+  text-decoration:none;font-size:0.85rem;font-weight:600;transition:all 0.2s}}
+.cert-link:hover{{border-color:var(--green);color:var(--green);transform:translateY(-2px)}}
+
+
 </style>
 </head>
 <body>
@@ -552,6 +569,10 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
   <div class="header">
     <div class="logo-text">G-LAB PEPTIDES</div>
     <div class="logo-sub">Research · Performance · Longevity</div>
+  </div>
+    <div class="cert-bar">
+  <div><strong>🔬 Certificados de pureza / CERTIFICATES OF PURITY:</strong> Consulte os laudos de pureza dos nossos peptídeos. View the purity reports for our peptides. </div>
+  <button class="btn-cert" onclick="abrirCertificados()">Ver Certificados/View Certificates</button>
   </div>
 
   <div class="alert-bar">
@@ -625,6 +646,23 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
     <button onclick="fecharInfo()" class="modal-close">Close -  Fechar</button>
   </div>
 </div>
+
+<div class="modal-overlay" id="modalCertificados" role="dialog" aria-modal="true" aria-labelledby="cert-titulo">
+  <div class="modal-box">
+    <h2 id="cert-titulo">🔬 Certificados de Pureza</h2>
+    <p style="font-size:0.85rem;color:var(--text2);margin-bottom:0">Clique para abrir o laudo desejado.</p>
+    <div class="cert-list">
+      <a class="cert-link" href="certificados/1.pdf" target="_blank" rel="noopener">📄 Certificado 1</a>
+      <a class="cert-link" href="certificados/2.pdf" target="_blank" rel="noopener">📄 Certificado 2</a>
+      <a class="cert-link" href="certificados/3.pdf" target="_blank" rel="noopener">📄 Certificado 3</a>
+      <a class="cert-link" href="certificados/4.pdf" target="_blank" rel="noopener">📄 Certificado 4</a>
+      <a class="cert-link" href="certificados/5.pdf" target="_blank" rel="noopener">📄 Certificado 5</a>
+      <a class="cert-link" href="certificados/6.pdf" target="_blank" rel="noopener">📄 Certificado 6</a>
+    </div>
+    <button onclick="fecharCertificados()" class="modal-close">Fechar</button>
+  </div>
+</div>
+
 
 <!-- MODAL CHECKOUT -->
 <div class="modal-overlay" id="modalCheckout">
@@ -725,6 +763,12 @@ async function calcularFrete() {{
 }}
 
 // 4. FUNÇÕES DE INTERFACE
+
+
+function abrirCertificados() {{ document.getElementById('modalCertificados').style.display = 'block'; }}
+function fecharCertificados() {{ document.getElementById('modalCertificados').style.display = 'none'; }}
+
+
 function abrirInfo(id) {{
     const p = PRODUTOS.find(x => x.id === id);
     if(p) {{
@@ -973,3 +1017,4 @@ document.getElementById('zip-code').addEventListener('blur', calcularFrete);
 
 if __name__ == "__main__":
     gerar_site_vendas_completo()
+
