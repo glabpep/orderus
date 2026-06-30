@@ -1017,4 +1017,3 @@ document.getElementById('zip-code').addEventListener('blur', calcularFrete);
 
 if __name__ == "__main__":
     gerar_site_vendas_completo()
-
