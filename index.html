@@ -130,6 +130,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:h
 .cart-fab .badge{position:absolute;top:-4px;right:-4px;background:var(--red);color:#fff;font-size:0.65rem;
   width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700}
 
+
+/* ── WHATSAPP FAB ─────────────────────────────────── */
+.whatsapp-fab{position:fixed;bottom:94px;right:24px;z-index:950;width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,#25D366,#128C7E);border:none;color:#fff;
+  cursor:pointer;box-shadow:0 4px 24px rgba(37,211,102,0.35);display:flex;align-items:center;justify-content:center;
+  transition:transform 0.2s;text-decoration:none}
+.whatsapp-fab:hover{transform:scale(1.08)}
+  
 .cart-panel{position:fixed;bottom:0;left:0;right:0;background:var(--surface);border-top:1px solid var(--surface3);
   border-radius:20px 20px 0 0;z-index:1000;display:none;box-shadow:0 -8px 40px rgba(0,0,0,0.4);
   max-height:80vh;overflow-y:auto;padding:20px}
@@ -182,9 +190,100 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:h
 .cert-link:hover{border-color:var(--green);color:var(--green);transform:translateY(-2px)}
 
 
+/* ===== MODAL G-LAB ===== */
+#glab-modal-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px; animation: glabFade .3s ease;
+}
+#glab-modal {
+  position: relative; width: 100%; max-width: 640px;
+  border-radius: 20px; overflow: hidden;
+  border: 1px solid rgba(220,38,38,0.4);
+  box-shadow: 0 0 60px rgba(220,38,38,0.45);
+  background-color: #0a0a0a;
+  background-image: linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.92)), url('1.png');
+  background-size: cover; background-position: center;
+  color: #fff; padding: 40px 32px;
+  animation: glabZoom .3s ease;
+}
+#glab-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); color:#fff;
+  border: none; cursor: pointer; font-size: 20px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+#glab-close:hover { background: #dc2626; transform: scale(1.1); }
+.glab-eyebrow {
+  color:#ef4444; letter-spacing:.3em; font-size:12px;
+  font-weight:600; text-transform:uppercase; text-align:center;
+  margin-bottom: 12px;
+}
+.glab-title {
+  text-align:center; font-size: 32px; font-weight: 800;
+  margin: 0 0 8px; letter-spacing:-0.02em;
+}
+.glab-title span { color:#dc2626; }
+.glab-divider { width:64px; height:2px; background:#dc2626; margin: 16px auto 28px; }
+.glab-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:14px; }
+.glab-item {
+  display:flex; gap:14px; padding:16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px; transition: all .2s;
+}
+.glab-item:hover { border-color: rgba(220,38,38,0.5); background: rgba(255,255,255,0.07); }
+.glab-icon {
+  width:44px; height:44px; border-radius:10px; flex-shrink:0;
+  background: rgba(220,38,38,0.15);
+  display:flex; align-items:center; justify-content:center; font-size:24px;
+}
+.glab-item h3 { margin:0 0 4px; font-size:16px; font-weight:600; }
+.glab-item p  { margin:0; font-size:14px; color: rgba(255,255,255,0.7); line-height:1.5; }
+.glab-btn {
+  margin-top: 28px; width:100%; padding: 14px;
+  background:#dc2626; color:#fff; border:none; border-radius:12px;
+  font-weight:600; text-transform:uppercase; letter-spacing:.1em;
+  font-size:14px; cursor:pointer; transition:all .2s;
+}
+.glab-btn:hover { background:#b91c1c; box-shadow: 0 0 30px rgba(220,38,38,0.6); }
+@keyframes glabFade { from{opacity:0} to{opacity:1} }
+@keyframes glabZoom { from{opacity:0; transform:scale(.95)} to{opacity:1; transform:scale(1)} }
+
+
 </style>
 </head>
 <body>
+<div id="glab-modal-overlay" onclick="if(event.target===this)document.getElementById('glab-modal-overlay').remove()">
+  <div id="glab-modal">
+    <button id="glab-close" onclick="document.getElementById('glab-modal-overlay').remove()">✕</button>
+    <p class="glab-eyebrow">Bem-vindo à G-LAB / Welcome to G-LAB</p>
+    <h2 class="glab-title">Por que escolher a / Why choose<span>G-LAB</span>?</h2>
+    <div class="glab-divider"></div>
+    <ul class="glab-list">
+      <li class="glab-item">
+        <div class="glab-icon">🤝</div>
+        <div><h3>Atendimento Personalizado / Personalized Support</h3><p>Suporte dedicado e exclusivo para cada cliente. / Dedicated and exclusive support for each client.</p></div>
+      </li>
+      <li class="glab-item">
+        <div class="glab-icon">🧬</div>
+        <div><h3>Auxílio nos Protocolos / Protocol Assistance</h3><p>Orientação especializada na montagem do seu protocolo. / Specialized guidance for creating your protocol.</p></div>
+      </li>
+      <li class="glab-item">
+        <div class="glab-icon">💬</div>
+        <div><h3>Acompanhamento Completo / Complete Monitoring</h3><p>Esclarecimento de dúvidas durante todo o tratamento / Clarification of questions throughout the treatment.</p></div>
+      </li>
+      <li class="glab-item">
+        <div class="glab-icon">🛡️</div>
+        <div><h3>Compra Garantida / Guaranteed Purchase</h3><p>Se seu pacote não chegar ou for extraviado, o reembolso é <strong>TOTAL</strong>! / If your package doesn't arrive or gets lost, the refund is FULL!</p></div>
+      </li>
+    </ul>
+    <button class="glab-btn" onclick="document.getElementById('glab-modal-overlay').remove()">Entrar no site ✨</button>
+  </div>
+</div>
 <div class="grain"></div>
 <div class="glow-orb glow-1"></div>
 <div class="glow-orb glow-2"></div>
@@ -199,6 +298,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:h
   <button class="btn-cert" onclick="abrirCertificados()">Ver Certificados/View Certificates</button>
   </div>
 
+  <div class="reconstituicao-bar">
+    <div><strong>🔬 Reconstituição/Reconstitution:</strong> Veja como fazer a reconstituição dos nossos peptídeos./Learn how to properly reconstitute our peptides.</div>
+    <button class="btn-cert" onclick="abrirReconstituicao()">Ver Reconstituição/View Reconstitution Guide</button>
+  </div>
+  <div class="guia-calculo-bar">
+    <div><strong>📊 Guia de Cálculo/Dosage Guide:</strong> Aprenda a calcular a dosagem correta dos peptídeos./Learn how to calculate the correct peptide dosage.</div>
+    <button class="btn-cert" onclick="abrirGuiaCalculo()">Ver Guia de Cálculo/View Dosage Guide</button>
+  </div>  
   <div class="alert-bar">
     <span class="close-x" onclick="this.parentElement.style.display='none'">&times;</span>
     <strong>📢 Notice-Aviso:</strong> 
@@ -1646,6 +1753,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:h
   </div>
 </div>
 
+<!-- WHATSAPP FAB -->
+<a class="whatsapp-fab" href="https://wa.me/17743519845" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
 <!-- FAB -->
 <button class="cart-fab" id="cart-fab" onclick="toggleCartPanel()">
   🛒<span class="badge" id="fab-badge">0</span>
@@ -1686,6 +1800,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:h
   </div>
 </div>
 
+
 <div class="modal-overlay" id="modalCertificados" role="dialog" aria-modal="true" aria-labelledby="cert-titulo">
   <div class="modal-box">
     <h2 id="cert-titulo">🔬 Certificados de Pureza</h2>
@@ -1702,6 +1817,30 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:h
   </div>
 </div>
 
+<!-- MODAL GUIA DE CÁLCULO -->
+<div class="modal-overlay" id="modalGuiaCalculo" role="dialog" aria-modal="true" aria-labelledby="guia-titulo">
+  <div class="modal-box">
+    <h2 id="guia-titulo">🔬 Guia de Cálculo</h2>
+    <p style="font-size:0.85rem;color:var(--text2);margin-bottom:0">Clique para abrir o guia de cálculo da G-LAB.</p>
+    <div class="cert-list">
+      <a class="cert-link" href="conversao/1.pdf" target="_blank" rel="noopener">📄 Guia 1</a>
+    </div>
+    <button onclick="fecharGuiaCalculo()" class="modal-close">Fechar</button>
+  </div>
+</div>
+
+
+<!-- MODAL RECONSTITUICAO -->
+<div class="modal-overlay" id="modalReconstituicao" role="dialog" aria-modal="true" aria-labelledby="reconst-titulo">
+  <div class="modal-box">
+    <h2 id="reconst-titulo">🔬 Veja como fazer a Reconstituição</h2>
+    <p style="font-size:0.85rem;color:var(--text2);margin-bottom:0">Clique para abrir a reconstituição.</p>
+    <div class="cert-list">
+      <a class="cert-link" href="reconstituicao/1.pdf" target="_blank" rel="noopener">📄 Reconstituição 1</a>
+    </div>
+    <button onclick="fecharReconstituicao()" class="modal-close">Fechar</button>
+  </div>
+</div>
 
 <!-- MODAL CHECKOUT -->
 <div class="modal-overlay" id="modalCheckout">
@@ -1828,6 +1967,13 @@ function abrirCheckout() {
 }
 
 function fecharCheckout() { document.getElementById('modalCheckout').style.display = 'none'; }
+function abrirCertificados() { document.getElementById('modalCertificados').style.display = 'block'; }
+function fecharCertificados() { document.getElementById('modalCertificados').style.display = 'none'; }
+function abrirReconstituicao() { document.getElementById('modalReconstituicao').style.display = 'block'; }
+function fecharReconstituicao() { document.getElementById('modalReconstituicao').style.display = 'none'; }  
+function abrirGuiaCalculo() { document.getElementById('modalGuiaCalculo').style.display = 'block'; }
+function fecharGuiaCalculo() { document.getElementById('modalGuiaCalculo').style.display = 'none'; }
+
 
 // 5. CARRINHO
 function adicionar(id) {
@@ -1942,7 +2088,10 @@ function toggleAvail() {
 
 function aplicarCupom() {
     const code = document.getElementById('coupon-code').value.trim().toUpperCase();
-    const cupons = {'BRUNA5':0.05,'BRUNA11':0.11, 'BRU11':0.11, 'PRO5':0.05, 'LARI5':0.05, 'AMANDA5':0.05, 'BRUNA10':0.10, 'MIKA5':0.05, 'PRIME5':0.05, 'WEY5':0.05, 'CASSIA5':0.05, 'LUD5':0.05, 'DANI5':0.05, 'GR26R':0.05, 'THA10':0.10, 'ESTEPHANY5':0.05, 'DAFNE10':0.10, 'GILMARA5':0.05, 'DUDA5': 0.05, 'DUDA10':0.10};
+    const cupons = {'BRUNA5':0.05, 'PRO5':0.05, 'LARI5':0.05,
+    'AMANDA5':0.05,  'MIKA5':0.05, 'PRIME5':0.05, 'WEY5':0.05, 'CASSIA5':0.05, 
+    'LUD5':0.05, 'DANI5':0.05, 'GR26R':0.05, 'THA10':0.10, 'ESTEPHANY5':0.05, 'DAFNE10':0.10, 
+    'GILMARA5':0.05, 'DUDA5': 0.05, 'EMILLY5':0.05, 'DUDA10':0.10, 'BRUNA10':0.10, 'EMILLY10':0.10, };
     
     if(cupons[code]) { cupomAtivo = {nome:code, desc:cupons[code]}; alert("Coupon applied - Cupom aplicado!"); }
     else { cupomAtivo = null; alert("Invalid coupon - Cupom inválido."); }
