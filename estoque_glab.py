@@ -633,33 +633,7 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
 </style>
 </head>
 <body>
-<div id="glab-modal-overlay" onclick="if(event.target===this)document.getElementById('glab-modal-overlay').remove()">
-  <div id="glab-modal">
-    <button id="glab-close" onclick="document.getElementById('glab-modal-overlay').remove()">✕</button>
-    <p class="glab-eyebrow">Bem-vindo à G-LAB / Welcome to G-LAB</p>
-    <h2 class="glab-title">Por que escolher a / Why choose <span>G-LAB</span>?</h2>
-    <div class="glab-divider"></div>
-    <ul class="glab-list">
-      <li class="glab-item">
-        <div class="glab-icon">🤝</div>
-        <div><h3>Atendimento Personalizado / Personalized Support</h3><p>Suporte dedicado e exclusivo para cada cliente. / Dedicated and exclusive support for each client.</p></div>
-      </li>
-      <li class="glab-item">
-        <div class="glab-icon">🧬</div>
-        <div><h3>Auxílio nos Protocolos / Protocol Assistance</h3><p>Orientação especializada na montagem do seu protocolo. / Specialized guidance for creating your protocol.</p></div>
-      </li>
-      <li class="glab-item">
-        <div class="glab-icon">💬</div>
-        <div><h3>Acompanhamento Completo / Complete Monitoring</h3><p>Esclarecimento de dúvidas durante todo o tratamento / Clarification of questions throughout the treatment.</p></div>
-      </li>
-      <li class="glab-item">
-        <div class="glab-icon">🛡️</div>
-        <div><h3>Compra Garantida / Guaranteed Purchase</h3><p>Se seu pacote não chegar ou for extraviado, o reembolso é <strong>TOTAL</strong>! / If your package doesn't arrive or gets lost, the refund is FULL!</p></div>
-      </li>
-    </ul>
-    <button class="glab-btn" onclick="document.getElementById('glab-modal-overlay').remove()">Entrar no site / Enter the site ✨</button>
-  </div>
-</div>
+
 <div class="grain"></div>
 <div class="glow-orb glow-1"></div>
 <div class="glow-orb glow-2"></div>
