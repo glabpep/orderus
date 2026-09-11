@@ -968,6 +968,10 @@ body{{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:
       <a class="cert-link" href="certificados/4.pdf" target="_blank" rel="noopener">📄 Certificado 4</a>
       <a class="cert-link" href="certificados/5.pdf" target="_blank" rel="noopener">📄 Certificado 5</a>
       <a class="cert-link" href="certificados/6.pdf" target="_blank" rel="noopener">📄 Certificado 6</a>
+      <a class="cert-link" href="certificados/7.pdf" target="_blank" rel="noopener">📄 Certificado 7</a>
+      <a class="cert-link" href="certificados/8.pdf" target="_blank" rel="noopener">📄 Certificado 8</a>
+      <a class="cert-link" href="certificados/9.pdf" target="_blank" rel="noopener">📄 Certificado 9</a>
+      <a class="cert-link" href="certificados/10.pdf" target="_blank" rel="noopener">📄 Certificado 10</a>
     </div>
     <button onclick="fecharCertificados()" class="modal-close">Fechar</button>
   </div>
